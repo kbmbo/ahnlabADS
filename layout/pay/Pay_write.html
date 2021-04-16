@@ -1,0 +1,162 @@
+<html lang="ko">
+    <head>
+        <title>ahnlab ADS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--파비콘 공통:s-->
+        <link rel="shortcut icon" href="https://image.ahnlab.com/favicon/favicon.ico">
+        <link rel="icon" sizes="16x16 32x32 64x64" href="https://image.ahnlab.com/favicon//favicon.ico">
+        <link rel="icon" type="image/png" sizes="152x160" href="https://image.ahnlab.com/favicon/favicon_152.png">
+        <link rel="icon" type="image/png" sizes="144x160" href="https://image.ahnlab.com/favicon/favicon_144.png">
+        <link rel="icon" type="image/png" sizes="120x120" href="https://image.ahnlab.com/favicon/favicon_120.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://image.ahnlab.com/favicon/favicon_96.png">
+        <link rel="icon" type="image/png" sizes="72x72" href="https://image.ahnlab.com/favicon/favicon_72.png">
+        <link rel="icon" type="image/png" sizes="57x57" href="https://image.ahnlab.com/favicon/favicon_57.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://image.ahnlab.com/favicon/favicon_32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://image.ahnlab.com/favicon/favicon_16.png">
+        <!--파비콘 공통:e-->
+        <link rel="stylesheet" type="text/css" href="/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="/css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="/js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="/js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="/js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="/js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="/js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="/js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="/js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="/js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="/js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="/js/chart.js"></script>
+        <script type="text/javascript" src="/js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="/js/table.js"></script>
+        <script type="text/javascript" src="/js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="/js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+    </head>
+    <body naver_screen_capture_injected="true">
+        <div id="loadingBg" class="complete">
+            loading...
+        </div>
+        <header class="mainHeader">
+            <div data-include-path="/layout/header.html"></div>
+        </header>
+        <div id="wrap">
+            <h2 class="location">결재<span></span>결재하기</h2>
+            <div class="contents">
+                <section>
+                    <div>
+                        <h4>결재유형</h4>
+                        <div class="btn_checkbox">
+                            <ul class="pay-tab">
+                                <li class="active">신용카드</li>
+                                <li>가상계좌</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <div class="payCard">
+                    <section>
+                        <div>
+                            <h4>결재금액</h4>
+                            <input type="text" class="w-200 mr-20" value=""/>
+                            <ul class="btn_checkbox pay">
+                                <li><input type="radio" name="pay" id="pay55" class="hidden" value="55만원"><label for="pay55">55만원</label></li>
+                                <li><input type="radio" name="pay" id="pay110" class="hidden" value="110만원"><label for="pay110">110만원</label></li>
+                                <li><input type="radio" name="pay" id="pay165" class="hidden" value="165만원"><label for="pay165">165만원</label></li>
+                                <li><input type="radio" name="pay" id="pay220" class="hidden" value="220만원"><label for="pay220">220만원</label></li>
+                                <li><input type="radio" name="pay" id="pay0" class="hidden" value=""><label for="pay0">초기화</label></li>
+                            </ul>
+                        </div>  
+                        <div>
+                            <h4>충전금액</h4>
+                            <input type="text" class="txtL w-200" value="" />                 
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <p>* 결제금액은 부가세(10%)를 포함한 금액입니다. 실제 충전금액은 결제금액에서 부가세 10%를 제외한 금액이 충전됩니다.</p>
+                            <p>* 결제가능브라우저 : Chrome, Internet Explorer(IE) 9 이상 버전 등으로 진행을 권장합니다.</p>
+                            <p>* 카드 결제는 세금계산서가 발행되지 않습니다. 결제 현황 페이지에서 매출전표로 확인 바랍니다.</p>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <h4>결제자명</h4>
+                            <input type="text" class="txtL w-200" value="" />                 
+                        </div>
+                        <div>
+                            <h4>이메일</h4>
+                            <input type="text" class="txtL w-200" value="" />                 
+                        </div>
+                        <div>
+                            <h4>휴대폰</h4>
+                            <input type="text" class="txtL w-200" value="" />                 
+                        </div>
+                        <div>* 결제금액은 부가세(10%)를 포함한 금액입니다. 실제 충전금액은 결제금액에서 부가세 10%를 제외한 금액이 충전됩니다.</div>
+                    </section>
+                    <div class="centerBox">
+                        <button type="button" class="confirm">등록</button>
+                        <button type="button" class="cancel">취소</button>
+                    </div>
+                </div>
+                <div class="account">
+                    <section>
+                        <div>
+                            <p>* 결제금액은 부가세(10%)를 포함한 금액입니다. 실제 충전금액은 결제금액에서 부가세 10%를 제외한 금액이 충전됩니다.</p>
+                            <p>* 결제가능브라우저 : Chrome, Internet Explorer(IE) 9 이상 버전 등으로 진행을 권장합니다.</p>
+                            <p>* 카드 결제는 세금계산서가 발행되지 않습니다. 결제 현황 페이지에서 매출전표로 확인 바랍니다.</p>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <h4 class="mr-10">전용계좌발급여부</h4>
+                            <span>발급완료</span>
+                        </div>
+                        <div>
+                            <h4 class="mr-10">전용계좌 정보</h4>
+                            <span>국민은행 72189014026886 (계좌명 : 다바걸)</span>
+                        </div>
+                        <div>
+                            <h4 class="mr-10">인터넷 뱅킹</h4>
+                            <ul class="bank">
+                                <li>경남은행</li>
+                                <li>광주은행</li>
+                                <li>국민은행</li>
+                                <li>기업은행</li>
+                                <li>농협</li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <p>* 결제자 정보의 메일로 영수증이 발송되니 결제하시는 분의 정보를 정확하게 입력 부탁드립니다.</p>
+                    </section>
+                </div>
+            </div>
+            <footer id="footer"></footer> 
+        </div>
+    </body>
+    <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</html>

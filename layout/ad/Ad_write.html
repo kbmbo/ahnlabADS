@@ -1,0 +1,277 @@
+<html lang="ko">
+    <head>
+        <title>ahnlab ADS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--파비콘 공통:s-->
+        <link rel="shortcut icon" href="https://image.ahnlab.com/favicon/favicon.ico">
+        <link rel="icon" sizes="16x16 32x32 64x64" href="https://image.ahnlab.com/favicon//favicon.ico">
+        <link rel="icon" type="image/png" sizes="152x160" href="https://image.ahnlab.com/favicon/favicon_152.png">
+        <link rel="icon" type="image/png" sizes="144x160" href="https://image.ahnlab.com/favicon/favicon_144.png">
+        <link rel="icon" type="image/png" sizes="120x120" href="https://image.ahnlab.com/favicon/favicon_120.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://image.ahnlab.com/favicon/favicon_96.png">
+        <link rel="icon" type="image/png" sizes="72x72" href="https://image.ahnlab.com/favicon/favicon_72.png">
+        <link rel="icon" type="image/png" sizes="57x57" href="https://image.ahnlab.com/favicon/favicon_57.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://image.ahnlab.com/favicon/favicon_32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://image.ahnlab.com/favicon/favicon_16.png">
+        <!--파비콘 공통:e-->
+        <link rel="stylesheet" type="text/css" href="/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="/css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="/js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="/js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="/js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="/js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="/js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="/js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="/js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="/js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="/js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="/js/chart.js"></script>
+        <script type="text/javascript" src="/js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="/js/table.js"></script>
+        <script type="text/javascript" src="/js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="/js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+    </head>
+    <body naver_screen_capture_injected="true">
+        <div id="loadingBg" class="complete">
+            loading...
+        </div>
+        <header class="mainHeader">
+            <div data-include-path="/layout/header.html"></div>
+        </header>
+        <div id="wrap">
+            <h2 class="location">광고<span></span>광고등록</h2>
+            <div class="contents">
+                <section>
+                    <div class="input50">
+                        <h4>광고제목</h4>
+                        <input type="text" placeholder="제목을 입력 하세요">
+                    </div>
+                    <div class="input50">
+                        <h4>랜딩 URL</h4>
+                        <input type="text" placeholder="http://">
+                    </div>
+                    <div>
+                        <h4>이미지 업로드</h4>
+                        <div action="/file-upload" class="dropzone dz-clickable dropzone_sample">
+                            <div class="dz-default dz-message"><span></span></div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="optionBox">
+                        <h4>기간 설정</h4>
+                        <div class="btn_checkbox">
+                            <div class="date">
+                                <h4 class="hidden">날짜선택</h4>
+                                <div class="calendar">
+                                    <div class="icon"></div>
+                                    <div class="dateChoice">
+                                        <input type="text" class="dateInput" value="" readonly="readonly" autocomplete="false">
+                                        <input type="hidden" name="sDate" value="20210301">
+                                        <input type="hidden" name="eDate" value="20210315">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="allCheckItems">
+                                <li><input type="checkbox" id="allWeek" class="hidden"><label for="allWeek">모든 요일</label></li>
+                                <li><input type="checkbox" id="weekdayAll" class="hidden"><label for="weekdayAll">평일</label></li>
+                                <li><input type="checkbox" id="weekendAll" class="hidden"><label for="weekendAll">주말</label></li>
+                            </ul>
+                            <ul class="dayCheckList">
+                                <li><input type="checkbox" name="mon" id="mon" class="hidden week weekdayAll" value="Y"><label for="mon">월</label></li>
+                                <li><input type="checkbox" name="tue" id="tue" class="hidden week weekdayAll" value="Y"><label for="tue">화</label></li>
+                                <li><input type="checkbox" name="wed" id="wed" class="hidden week weekdayAll" value="Y"><label for="wed">수</label></li>
+                                <li><input type="checkbox" name="thu" id="thu" class="hidden week weekdayAll" value="Y"><label for="thu">목</label></li>
+                                <li><input type="checkbox" name="fri" id="fri" class="hidden week weekdayAll" value="Y"><label for="fri">금</label></li>
+                                <li><input type="checkbox" name="sat" id="sat" class="hidden week weekendAll" value="Y"><label for="sat">토</label></li>
+                                <li><input type="checkbox" name="sun" id="sun" class="hidden week weekendAll" value="Y"><label for="sun">일</label></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <script>
+                        $(document).on("click",".week",function () {
+                            if ($(".week:checked").length == $(".week").length) {
+                                $("#allWeek,#weekdayAll,#weekendAll").prop("checked", true);
+                            } else{
+                                $("#allWeek,#weekdayAll,#weekendAll").prop("checked", false);
+                            }
+                        });
+                        $(document).on("click","#allWeek",function () {
+                            var _checked = $(this).is(":checked");
+                            $("#weekdayAll,#weekendAll").prop("checked", _checked);
+                        });
+
+                        $("#weekdayAll").on("click", function(){
+                            var _checked = $(this).is(":checked");
+                            $(".weekdayAll").prop("checked", _checked);
+                        });
+
+                        $("#weekendAll").on("click", function(){
+                            var _checked = $(this).is(":checked");
+                            $(".weekendAll").prop("checked", _checked);
+                        });
+                    </script>
+                </section>
+                <section>
+                    <div>
+                        <h4>지역 설정</h4>
+                        <div class="customSelect">
+                            <select name="">
+                                <option value="" selected="">전체</option>
+                                <option value="">서울특별시</option>
+                                <option value="">인천광역시</option>
+                                <option value="">대전광역시</option>
+                                <option value="">광주광역시</option>
+                                <option value="">대구광역시</option>
+                                <option value="">울산광역시</option>
+                                <option value="">부산광역시</option>
+                                <option value="">경기도</option>
+                                <option value="">강원도</option>
+                                <option value="">충청북도</option>
+                                <option value="">충청남도</option>
+                                <option value="">전라북도</option>
+                                <option value="">전라남도</option>
+                                <option value="">경상북도</option>
+                                <option value="">경상남도</option>
+                                <option value="">제주도</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h4>성별</h4>
+                        <div class="btn_checkbox">
+                            <ul class="allCheckItems">
+                                <li><input type="checkbox" id="gender" class="hidden"><label for="gender">전체</label></li>
+                                <li><input type="checkbox" id="male" class="hidden gender"><label for="male">남</label></li>
+                                <li><input type="checkbox" id="female" class="hidden gender"><label for="female">여</label></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>연령</h4>
+                        <div class="btn_checkbox">
+                            <ul class="allCheckItems">
+                                <li><input type="checkbox" id="age" class="hidden"><label for="age">전체</label></li>
+                                <li><input type="checkbox" id="13" class="hidden age"><label for="13">~ 13</label></li>
+                                <li><input type="checkbox" id="19" class="hidden age"><label for="19">14 ~ 19</label></li>
+                                <li><input type="checkbox" id="26" class="hidden age"><label for="26">20 ~ 26</label></li>
+                                <li><input type="checkbox" id="32" class="hidden age"><label for="32">27 ~ 32</label></li>
+                                <li><input type="checkbox" id="40" class="hidden age"><label for="40">33 ~ 40</label></li>
+                                <li><input type="checkbox" id="46" class="hidden age"><label for="46">41 ~ 46</label></li>
+                                <li><input type="checkbox" id="56" class="hidden age"><label for="56">47 ~ 56</label></li>
+                                <li><input type="checkbox" id="57" class="hidden age"><label for="57">57 ~</label></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <script>
+                        $(document).on("click",".gender",function () {
+                            if ($(".gender:checked").length == $(".gender").length) {
+                                $("#gender").prop("checked", true);
+                            } else{
+                                $("#gender").prop("checked", false);
+                            }
+                        });
+                        $(document).on("click","#gender",function () {
+                            var _checked = $(this).is(":checked");
+                            $(".gender").prop("checked", _checked);
+                        });
+                        $(document).on("click",".age",function () {
+                            if ($(".age:checked").length == $(".age").length) {
+                                $("#age").prop("checked", true);
+                            } else{
+                                $("#age").prop("checked", false);
+                            }
+                        });
+                        $(document).on("click","#age",function () {
+                            var _checked = $(this).is(":checked");
+                            $(".age").prop("checked", _checked);
+                        });
+                    </script>
+                </section>
+                <section>
+                    <h4>카테고리</h4>
+                    <div class="input25">
+                        <input type="text" class="mr-20 txtL" value="패션 > 여성패션 > 모던시크" readonly />
+                        <button type="button" onclick="window.open('cate_pop.html','pop','resizable=yes,width=600,height=780');">선택</button>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h4>예산설정</h4>
+                        <ul class="btn_checkbox">
+                            <li><input type="radio" name="limit" id="unlimited" class="hidden"><label for="unlimited">무제한</label></li>
+                            <li><input type="radio" name="limit" id="limit" class="hidden"><label for="limit">제한</label></li>
+                        </ul>
+                    </div>
+                    <div class="input25">
+                        <h4>월예산입력</h4>
+                        <input type="number" value="" />
+                    </div>
+                    <div class="input25">
+                        <h4>서비스비율</h4>
+                        <input type="text" value="%" />
+                    </div>
+                    <div class="input25">
+                        <h4>일별예산</h4>
+                        <input type="number" value="" />
+                    </div>
+                    <div class="input25">
+                        <h4>시간대별예산</h4>
+                        <input type="number" value="" />
+                    </div>
+                </section>
+                <section>
+                    <div class="input25">
+                        <h4>계약조건</h4>
+                        <div class="customSelect">
+                            <select name="">
+                                <option value="" selected="">선택</option>
+                                <option value="">CPC</option>
+                                <option value="">CPM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input25">
+                        <h4 class="W-60">단가</h4>
+                        <input type="number" />
+                    </div>
+                    <div>
+                        <h4>지면 등록</h4>
+                        <input type="text" class="w-200 mr-20" />
+                            <button type="button" class="mr-10">검색</button>
+                            <button type="button">전체지면</button>
+                    </div>
+                    <div class="mediaRegister">
+                        <div>
+                            <p>등록지면</p>
+                            <div></div>
+                        </div>
+                        <div>
+                            <p>제외지면</p>
+                            <div></div>
+                        </div>
+                    </div>
+                </section>
+                <div class="centerBox">
+                    <button type="button" class="confirm">등록</button>
+                    <button type="button" class="cancel">취소</button>
+                </div>
+            </div>
+            <footer id="footer"></footer> 
+        </div>
+\    </body>
+    <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</html>
