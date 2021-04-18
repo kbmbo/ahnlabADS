@@ -476,7 +476,8 @@ button {
           width: 120px;
           text-align: center;
           line-height: 32px;
-          float: left; }
+          float: left;
+          cursor: pointer; }
           .contents section > div ul.bank li:hover {
             background-color: #0e2b5a;
             color: #fff; }
