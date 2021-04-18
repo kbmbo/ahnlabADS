@@ -525,20 +525,24 @@ $navW2:90px;
 					}
 				}
 			}
-			.bank li{
-				margin-right: 10px;
-				background: #ccc;
-				border-radius: 3px;
-				font-size: 15px;
-				font-weight: 400;
-				color: #000;
-				width:120px;
-				text-align:center;
-				line-height:32px;
-				&:hover{background-color: $mainColor2;}
-			}
-		}
-		
+			ul.bank{
+				width: calc(100% - #{$h4W});
+				float: left;
+				li{
+					margin:0 10px 10px 0;
+					background: #ccc;
+					border-radius: 3px;
+					font-size: 15px;
+					font-weight: 400;
+					color: #000;
+					width:120px;
+					text-align:center;
+					line-height:32px;
+					float: left;
+					&:hover{background-color: $mainColor2; color: #fff;}
+				}
+			} 
+		}		
 	}
 	.centerBox{margin-bottom: 0;}
 	.account{display: none;}

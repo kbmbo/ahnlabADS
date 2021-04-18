@@ -463,18 +463,23 @@ button {
         min-width: 40px;
         width: 50px;
         padding: 0 10px; }
-      .contents section > div .bank li {
-        margin-right: 10px;
-        background: #ccc;
-        border-radius: 3px;
-        font-size: 15px;
-        font-weight: 400;
-        color: #000;
-        width: 120px;
-        text-align: center;
-        line-height: 32px; }
-        .contents section > div .bank li:hover {
-          background-color: #0e2b5a; }
+      .contents section > div ul.bank {
+        width: calc(100% - 120px);
+        float: left; }
+        .contents section > div ul.bank li {
+          margin: 0 10px 10px 0;
+          background: #ccc;
+          border-radius: 3px;
+          font-size: 15px;
+          font-weight: 400;
+          color: #000;
+          width: 120px;
+          text-align: center;
+          line-height: 32px;
+          float: left; }
+          .contents section > div ul.bank li:hover {
+            background-color: #0e2b5a;
+            color: #fff; }
   .contents .centerBox {
     margin-bottom: 0; }
   .contents .account {
