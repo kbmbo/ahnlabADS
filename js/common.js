@@ -86,7 +86,7 @@ common.menu = function (){
     //url 변경
     $(document).on("click",".urlBtn,.logoArea", function() {
         var URL=$(this).attr('data-url');
-        $(location).attr('href','/ahnlabADS/'+URL);
+        $(location).attr('href','/ahnlabADS'+URL);
     });
     // 2depth 메뉴 클릭 이벤트
 	$(document).on("click",".depth > li", function() {
