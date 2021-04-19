@@ -84,7 +84,7 @@ common.menu = function (){
     // 햄버거 메뉴 작동 End
 
     //url 변경
-    $(document).on("click",".depth li,.logoArea", function() {
+    $(document).on("click",".urlBtn,.logoArea", function() {
         var URL=$(this).attr('data-url');
         $(location).attr('href','/ahnlabADS/'+URL);
     });
