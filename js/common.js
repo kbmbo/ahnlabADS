@@ -1,11 +1,11 @@
 var i = 0;
 
 // 크롬 외 브라우저 접속 시 안내 모달 스크립트
-var ua = window.navigator.userAgent;
-function browserVerification() {
-    // alert("it's not chrome")
-    //console.log('현재 접속한 환경: ' + ua)
-}
+// var ua = window.navigator.userAgent;
+// function browserVerification() {
+//     alert("it's not chrome")
+//     console.log('현재 접속한 환경: ' + ua)
+// }
 // 모달 오픈 후 닫기 버튼 클릭시 작동하는 스크립트
 // $(".modalCloseBtn").click(function(){
 //     $(".modalPopup").removeClass("on");
@@ -14,26 +14,26 @@ function browserVerification() {
 //     $('body').css('overflow','auto');
 //     $('body').attr('scroll','yes');
 // });
-if (ua.indexOf("MSIE") > 0 || ua.indexOf("Trident") > 0) {
-    // IE
-	browserVerification();
-} else if (navigator.userAgent.toLowerCase().indexOf("edge") > -1) {
-    // IE Edge
-	browserVerification();
-} else if (ua.indexOf("Opera") > 0 || ua.indexOf("OPR") > 0) {
-    // Opera
-	browserVerification();
-} else if (ua.indexOf("Firefox") > 0) {
-    // Firefox
-	browserVerification();
-} else if (ua.indexOf("Safari") > 0) {
-	if (ua.indexOf("Chrome") > 0) {
-        // Chrome
-	} else if (ua.indexOf("Safari") > 0) {
-        // Safari
-		browserVerification();
-    }
-}
+// if (ua.indexOf("MSIE") > 0 || ua.indexOf("Trident") > 0) {
+//     // IE
+// 	browserVerification();
+// } else if (navigator.userAgent.toLowerCase().indexOf("edge") > -1) {
+//     // IE Edge
+// 	browserVerification();
+// } else if (ua.indexOf("Opera") > 0 || ua.indexOf("OPR") > 0) {
+//     // Opera
+// 	browserVerification();
+// } else if (ua.indexOf("Firefox") > 0) {
+//     // Firefox
+// 	browserVerification();
+// } else if (ua.indexOf("Safari") > 0) {
+// 	if (ua.indexOf("Chrome") > 0) {
+//         // Chrome
+// 	} else if (ua.indexOf("Safari") > 0) {
+//         // Safari
+// 		browserVerification();
+//     }
+// }
 // 크롬 외 브라우저 접속 시 안내 모달 스크립트 End
 window.addEventListener('load', function(){
     $("#loadingBg").addClass("complete");
