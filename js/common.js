@@ -154,41 +154,41 @@ common.daterangepicker = function (){
 // };
 
 // 모달 오픈 script
-common.modal = function(){
-    // 모달 사용법
-    // 1. 클릭 대상에 클래스(modalOpen), modal속성(오픈할려고 하는 모달 id)를 추가
-    // 2. modalOpen 클래스를 가진 타겟을 클릭하면 해당 타겟의 modal 속성값을 저장
-    // 3. 변수로 modal 속성값을 id로 변환
-    // 4. 해당 id 값을 가진 모달에 display block으로 모달 오픈
-    // Close
-    // 1. 윈도우 화면을 클릭하면 오픈되어 있는 모달 객체를 저장.
-    // 2. 해당 id 값을 가진 객체가 모달 오픈시 저장해놨던 id 값을 가진 객체의 값이 같으면 display none으로 모달 종료
-    saveModalName = null;
-    $(document).on('click','.modalOpen', function(){
-        saveModalName = $(this).data('modal');
-        openTarget = $('#' + saveModalName);
-        openTarget.css('display','block');
-        $('body').css('overflow','hidden');
-        $('body').attr('scroll','no');
-    });
-    $(document).on('click','.modalContent .cancel', function(){
-        openTarget.css('display','none');
-        $('body').css('overflow','auto');
-        $('body').attr('scroll','yes');
-    });   
-	function modalClose(event) {
-        var a = event.target;
-        var b = a.id;
-        if(b == saveModalName) {
-            a.style.display = 'none';
-            $('body').css('overflow','auto');
-            $('body').attr('scroll','yes');
-        }
-    }
-    window.onclick = function(event) {
-        modalClose(event);
-    }
-};
+// common.modal = function(){
+//     // 모달 사용법
+//     // 1. 클릭 대상에 클래스(modalOpen), modal속성(오픈할려고 하는 모달 id)를 추가
+//     // 2. modalOpen 클래스를 가진 타겟을 클릭하면 해당 타겟의 modal 속성값을 저장
+//     // 3. 변수로 modal 속성값을 id로 변환
+//     // 4. 해당 id 값을 가진 모달에 display block으로 모달 오픈
+//     // Close
+//     // 1. 윈도우 화면을 클릭하면 오픈되어 있는 모달 객체를 저장.
+//     // 2. 해당 id 값을 가진 객체가 모달 오픈시 저장해놨던 id 값을 가진 객체의 값이 같으면 display none으로 모달 종료
+//     saveModalName = null;
+//     $(document).on('click','.modalOpen', function(){
+//         saveModalName = $(this).data('modal');
+//         openTarget = $('#' + saveModalName);
+//         openTarget.css('display','block');
+//         $('body').css('overflow','hidden');
+//         $('body').attr('scroll','no');
+//     });
+//     $(document).on('click','.modalContent .cancel', function(){
+//         openTarget.css('display','none');
+//         $('body').css('overflow','auto');
+//         $('body').attr('scroll','yes');
+//     });   
+// 	function modalClose(event) {
+//         var a = event.target;
+//         var b = a.id;
+//         if(b == saveModalName) {
+//             a.style.display = 'none';
+//             $('body').css('overflow','auto');
+//             $('body').attr('scroll','yes');
+//         }
+//     }
+//     window.onclick = function(event) {
+//         modalClose(event);
+//     }
+// };
 
 // 모달 오픈 script End
 // 전체 페이지 공통 script
@@ -196,7 +196,7 @@ $(function() {
 	common.menu();
     common.daterangepicker();
     //common.tableResize();
-    common.modal();
+    //common.modal();
 	//지정일 선택
 	$(document).on("click",".datepickSelect .inputBox span",function() {
 		$(".dateLayer").fadeIn(200);
