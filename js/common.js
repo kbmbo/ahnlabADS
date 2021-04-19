@@ -95,11 +95,9 @@ common.menu = function (){
         $(this).siblings().find('ul').slideUp(200);
     });
     $(document).on("click",".depth .subMenu li", function() {
-        var URL=$(this).attr('data-url');
         $(".depth .subMenu li").removeClass('active');
         $(".depth > li:first-child").removeClass('HomeOn');
         $(this).addClass('active')
-        $(location).attr('href',URL);
     });
     // 2depth 메뉴 클릭 이벤트 End
 
