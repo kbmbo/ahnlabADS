@@ -63,6 +63,167 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("footer").innerHTML="<p>Copyright(c) 2021 모비온 All rights reserved.</p>"
 });
 //html 로드:e
+//시간설정 :s
+var timeRtbSetting = function() {
+
+    var minCost = 10;
+
+    function timeChecked(){
+        var usemoney = 0;
+        if( $(".bdgtUlmtYn:checked").val() == 'N' ){
+
+            var timeCount = $(".hhNo:checked").length;
+
+            if( $("#usemoney").val() < (minCost*timeCount)){
+                //alert('설정하신 일일허용예산이 균등배분하기엔 금액이 부족합니다.');
+                $("#usemoney").val(minCost * timeCount);
+            }
+            usemoney = $("#usemoney").val().replace(/[0-9]$/,0);
+            $("#usemoney").val(usemoney);
+            $("#timeUsemoney").val((Math.floor((usemoney / timeCount) / minCost) * minCost));
+        }
+    }
+
+    function timeRtbChecked(){
+        var usemoney = 0;
+        if( $(".rtbBdgtUlmtYn:checked").val() == 'N' && $("#rtbUsemoneyYn").prop("checked") ){
+
+            timeCount = $(".hhNo:checked").length;
+            if( $("#rtbUsemoneyWeb").val() < (minCost * timeCount)){
+                //alert('설정하신 RTB 온라인 일일허용예산이 균등배분하기엔 금액이 부족합니다.');
+                $("#rtbUsemoneyWeb").val(minCost * timeCount);
+            }
+
+            usemoney = $("#rtbUsemoneyWeb").val().replace(/[0-9]$/,0);
+            $("#rtbUsemoneyWeb").val(usemoney);
+            $("#timeRtbUsemoneyWeb").val((Math.floor((usemoney / timeCount) / minCost) * minCost));
+
+            if( $("#rtbUsemoneyMobile").val() < (minCost * timeCount)){
+                //alert('설정하신 RTB 모바일 일일허용예산이 균등배분하기엔 금액이 부족합니다.');
+                $("#rtbUsemoneyMobile").val(minCost * timeCount);
+
+            }
+
+            usemoney = $("#rtbUsemoneyMobile").val().replace(/[0-9]$/,0);
+            $("#rtbUsemoneyMobile").val(usemoney);
+            $("#timeRtbUsemoneyMobile").val((Math.floor((usemoney / timeCount) / minCost) * minCost));
+        }
+    }
+
+    return {
+        load : function(){
+            timeChecked();
+            timeRtbChecked();
+        },
+        events : function (){
+
+            $(".hhNo").on("click", function(){
+                //$("#rtbHhNo"+$(this).val()).prop("checked", $(this).prop("checked"));
+                //timeChecked();
+                //timeRtbChecked();
+            });
+
+
+            $(".bdgtUlmtYn").on("click", function(){
+                if($(this).val() == 'Y'){
+                    $("#usemoney").val(0).attr("readonly", true);
+                    $("#timeUsemoney").val('');
+                } else {
+                    $("#usemoney").attr("readonly", false);
+                    timeChecked();
+                }
+            });
+
+            $("#hourAll").on("click", function(){
+                $(".hhNo").prop("checked", $(this).prop("checked"));
+                $(".rtbHhNo").prop("checked", $(this).prop("checked"));
+                timeChecked();
+                timeRtbChecked();
+            });
+
+			$("#timeAll").on("click", function(){
+				$(".hhNo").prop("checked", $(this).prop("checked"));
+				$(".rtbHhNo").prop("checked", $(this).prop("checked"));
+				if ($(this).prop("checked") == true) {
+					// addClass ui-selected
+					$(".timeSetting").find("li").addClass("ui-selected");
+				} else {
+					// removeClass ui-selected
+					$(".timeSetting").find("li").removeClass("ui-selected");
+				}
+				timeChecked();
+				timeRtbChecked();
+			});
+
+            $(".rtbHhNo").on("click", function(){
+                timeRtbChecked();
+            });
+
+            $(".rtbBdgtUlmtYn").on("click", function(){
+                if($(this).val() == 'Y'){
+                    $("#rtbUsemoneyWeb").val(0).attr("readonly", true);
+                    $("#timeRtbUsemoneyWeb").val('');
+                } else {
+                    $("#rtbUsemoneyWeb").attr("readonly", false);
+                    timeRtbChecked();
+                }
+            });
+
+            $(".rtbBdgtUlmtMobileYn").on("click", function(){
+                if($(this).val() == 'Y'){
+                    $("#rtbUsemoneyMobile").val(0).attr("readonly", true);
+                    $("#timeRtbUsemoneyMobile").val('');
+                } else {
+                    $("#rtbUsemoneyMobile").attr("readonly", false);
+                    timeRtbChecked();
+                }
+            });
+
+            $("#usemoney").on("blur", function(){
+                timeChecked();
+            });
+
+            $("#rtbUsemoneyWeb,#rtbUsemoneyMobile").on("blur", function(){
+                timeRtbChecked();
+            });
+
+
+            // 광고 스케줄 s
+            function numberPad(n, width) {
+                n = n + '';
+                return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+            }
+
+            $( ".timeSetting" ).selectable({
+                stop: function() {
+                	var total_length = $(".timeSetting").find("li").length;
+                	var checked_length = 0;
+                	$("#timeAll").prop("checked", false);
+
+                    $(".ui-widget-content", this).each(function () {
+                        var index = $( ".timeSetting li" ).index( this );
+                        var tmp_id = numberPad(index, 2);
+
+                        var _checked = false;
+                        if ($(this).hasClass("ui-selected") == true) {
+                            _checked = true;
+							checked_length++;
+                        }
+
+                        $("#hhNo" + tmp_id).prop('checked', _checked);
+                        timeChecked();
+                        timeRtbChecked();
+                    });
+
+                    if (total_length == checked_length) {
+						$("#timeAll").prop("checked", true);
+					}
+                }
+            });
+        }
+    }
+};
+//시간설정 :e
 var magnificPopup;
 var common = {};
 // 메뉴
