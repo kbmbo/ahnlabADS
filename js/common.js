@@ -414,6 +414,64 @@ $(function(){
 		});
 		});
 });
+//Ad_write 체크 옵션 :s
+$(document).on("click",".week",function () {
+    if ($(".week:checked").length == $(".week").length) {
+        $("#allWeek,#weekdayAll,#weekendAll").prop("checked", true);
+    } else{
+        $("#allWeek,#weekdayAll,#weekendAll").prop("checked", false);
+    }
+});
+$(document).on("click",".weekendAll,.weekdayAll,.week",function () {
+    if ($(".weekendAll:checked").length == $(".weekendAll").length) {
+        $("#weekendAll").prop("checked", true);
+    } else{
+        $("#weekendAll").prop("checked", false);
+    }
+    if ($(".weekdayAll:checked").length == $(".weekdayAll").length) {
+        $("#weekdayAll").prop("checked", true);
+    } else{
+        $("#weekdayAll").prop("checked", false);
+    }
+});
+$(document).on("click","#allWeek",function () {
+    var _checked = $(this).is(":checked");
+    $("#weekdayAll,#weekendAll,.week").prop("checked", _checked);
+});
+
+$(document).on("click","#weekdayAll,#weekendAll", function(){
+    var week =$(this).attr('id');
+    var _checked = $(this).is(":checked");
+    $("."+week).prop("checked", _checked);
+    if(($("#weekdayAll").is(":checked") && $("#weekendAll").is(":checked")) === true){
+        $("#allWeek").prop("checked", true);
+    } else{
+        $("#allWeek").prop("checked", false);
+    }
+});
+$(document).on("click",".gender",function () {
+    if ($(".gender:checked").length == $(".gender").length) {
+        $("#gender").prop("checked", true);
+    } else{
+        $("#gender").prop("checked", false);
+    }
+});
+$(document).on("click","#gender",function () {
+    var _checked = $(this).is(":checked");
+    $(".gender").prop("checked", _checked);
+});
+$(document).on("click",".age",function () {
+    if ($(".age:checked").length == $(".age").length) {
+        $("#age").prop("checked", true);
+    } else{
+        $("#age").prop("checked", false);
+    }
+});
+$(document).on("click","#age",function () {
+    var _checked = $(this).is(":checked");
+    $(".age").prop("checked", _checked);
+});
+//Ad_write 체크 옵션 :e
 
 // 전체 선택 스크립트
 $(document).on("click", '.allCheckItems input[name="allCheckbox"]', function() {

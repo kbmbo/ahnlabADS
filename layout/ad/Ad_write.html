@@ -99,29 +99,6 @@
                             </ul>
                         </div>
                     </div>
-                    <script>
-                        $(document).on("click",".week",function () {
-                            if ($(".week:checked").length == $(".week").length) {
-                                $("#allWeek,#weekdayAll,#weekendAll").prop("checked", true);
-                            } else{
-                                $("#allWeek,#weekdayAll,#weekendAll").prop("checked", false);
-                            }
-                        });
-                        $(document).on("click","#allWeek",function () {
-                            var _checked = $(this).is(":checked");
-                            $("#weekdayAll,#weekendAll").prop("checked", _checked);
-                        });
-
-                        $("#weekdayAll").on("click", function(){
-                            var _checked = $(this).is(":checked");
-                            $(".weekdayAll").prop("checked", _checked);
-                        });
-
-                        $("#weekendAll").on("click", function(){
-                            var _checked = $(this).is(":checked");
-                            $(".weekendAll").prop("checked", _checked);
-                        });
-                    </script>
                 </section>
                 <section>
                     <div>
@@ -348,30 +325,6 @@
                             </ul>
                         </div>
                     </div>
-                    <script>
-                        $(document).on("click",".gender",function () {
-                            if ($(".gender:checked").length == $(".gender").length) {
-                                $("#gender").prop("checked", true);
-                            } else{
-                                $("#gender").prop("checked", false);
-                            }
-                        });
-                        $(document).on("click","#gender",function () {
-                            var _checked = $(this).is(":checked");
-                            $(".gender").prop("checked", _checked);
-                        });
-                        $(document).on("click",".age",function () {
-                            if ($(".age:checked").length == $(".age").length) {
-                                $("#age").prop("checked", true);
-                            } else{
-                                $("#age").prop("checked", false);
-                            }
-                        });
-                        $(document).on("click","#age",function () {
-                            var _checked = $(this).is(":checked");
-                            $(".age").prop("checked", _checked);
-                        });
-                    </script>
                 </section>
                 <section>
                     <h4>카테고리</h4>
@@ -444,6 +397,6 @@
             </div>
             <footer id="footer"></footer> 
         </div>
-\    </body>
+    </body>
     <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
 </html>
