@@ -471,6 +471,37 @@ $(document).on("click","#age",function () {
     var _checked = $(this).is(":checked");
     $(".age").prop("checked", _checked);
 });
+$(document).on("change",".citySelect",function () {
+    var cityList=$(this).find("option:selected").text();
+    var cityIndex=$(this).find("option:selected").index();
+    if(cityIndex===0){
+        return false;
+    } else{
+        if($(this).find("option:selected").hasClass('check')){
+            alert('선택된 지역입니다.');
+        } else{
+            $(".cityList").append("<span data-index='"+cityIndex+"'>"+cityList+"<i>x</i></span>");
+            if(cityIndex === 1){
+                $(this).find("option:not(:eq(1))").removeClass('check');
+                $(".cityList span:not([data-index=1])").remove();
+            } else {
+                $(this).find("option:selected").addClass('check');
+                $(".cityList span[data-index=1]").remove();
+            }
+        }
+    }
+});
+$(document).on("click",".cityList > span > i",function () {
+    var num = $(this).parent('span').attr('data-index')
+    $(this).parent('span').remove();
+    $('.citySelect > option').eq(num).removeClass('check');
+    $('.citySelect > option').eq(0).prop('selected', true);
+});
+$(document).on("click",".cityListDel",function () {
+    $('.cityList').children('span').remove();
+    $('.citySelect > option').removeClass('check');
+    $('.citySelect > option').eq(0).prop('selected', true);
+});
 //Ad_write 체크 옵션 :e
 
 // 전체 선택 스크립트

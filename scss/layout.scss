@@ -431,21 +431,22 @@ $navW2:90px;
 		h4{
 			font-weight: 500;
 			font-size: 16px;
-			width: 120px;
+			width: $h4W;
 			float: left;
-			line-height: $inputH;}
+			line-height: $inputH;
+		}
 		> div{
 			width: 100%;
 			margin-bottom: 30px;
 			float: left;
 			> p{line-height: 25px;}
-			> span{line-height: 32px;}
+			> span{line-height: $inputH;}
 			&:after {
 				content: "";
 				display: block;
 				clear: both;
 			}
-			&.input50 input,&.input25 input{width: calc(100% - #{$h4W}); float: left;}
+			&.input50 input,&.input25 input,.cityList{width: calc(100% - #{$h4W}); float: left;}
 			&.input50{
 				width: calc(50% - 10px);
 				&:first-child{margin-right: 20px;}
@@ -585,7 +586,25 @@ $navW2:90px;
 					&:hover{background-color: $mainColor2; color: #fff;}
 				}
 			} 
-		}		
+		}
+		.cityList{
+			margin-left: $h4W;
+			span{
+				margin-right: 20px;
+				line-height: 40px;
+				display: inline-block;
+				font-size: 15px;
+				> i{
+					content: 'x';
+					display: inline-block;
+					margin-left: 4px;
+					font-weight: 600;
+					cursor: pointer;
+					font-size: 17px;
+					font-style: normal;
+				}
+			}
+		}	
 	}
 	.centerBox{margin-bottom: 0;}
 	.account{display: none;}

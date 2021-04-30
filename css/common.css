@@ -392,7 +392,7 @@ button {
         content: "";
         display: block;
         clear: both; }
-      .contents section > div.input50 input, .contents section > div.input25 input {
+      .contents section > div.input50 input, .contents section > div.input25 input, .contents section > div .cityList {
         width: calc(100% - 120px);
         float: left; }
       .contents section > div.input50 {
@@ -515,6 +515,21 @@ button {
           .contents section > div ul.bank li:hover {
             background-color: #0e2b5a;
             color: #fff; }
+    .contents section .cityList {
+      margin-left: 120px; }
+      .contents section .cityList span {
+        margin-right: 20px;
+        line-height: 40px;
+        display: inline-block;
+        font-size: 15px; }
+        .contents section .cityList span > i {
+          content: 'x';
+          display: inline-block;
+          margin-left: 4px;
+          font-weight: 600;
+          cursor: pointer;
+          font-size: 17px;
+          font-style: normal; }
   .contents .centerBox {
     margin-bottom: 0; }
   .contents .account {
