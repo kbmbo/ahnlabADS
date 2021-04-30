@@ -390,12 +390,14 @@ $(function() {
 
 // 개별 페이지 script
 $(function(){
-	// 폴딩 테이블에 사용되는 스크립트
-	$(document).on("click",".folding_table .tableSection tbody > tr > .folding",function() {
-			$(this).toggleClass("on");
-		}
-	);
-	// 폴딩 테이블에 사용되는 스크립트 End
+	// Toggle 메뉴
+	$(document).on("click",".comboBox", function() {
+		$(this).children('ul').stop().slideToggle(200);
+	});
+    $('body').on('click',function(e){
+        if(e.target.className ==".comboBox"){return false}
+        $('.comboBox').children('ul').stop().slideUp();
+    });
 	//테이블내 값 수정 - JB
 	$(".edit-input").each(function() {
 		var $this = $(this);

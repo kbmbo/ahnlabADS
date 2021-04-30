@@ -1,15 +1,20 @@
 /*
  * Table styles
  */
- table.dataTable thead .sorting {
-  background: url("../../img/icon/icon_arrow_default.png") no-repeat right/15px;
-}
-table.dataTable thead .sorting_asc {
-  background: url("../../img/icon/icon_arrow_up.png") no-repeat right/15px;
-}
-table.dataTable thead .sorting_desc {
-  background: url("../../img/icon/icon_arrow_down.png") no-repeat right/15px;
-}
+ table.dataTable thead .sorting{cursor: pointer;}
+ table.dataTable thead .sorting:after{
+  content: '';
+  background-image: url('../../img/icon/icon_arrow_default.png');
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 15px;
+  height: 23px;
+  display: inline-block;
+  margin: -3px 0 0 6px;
+  vertical-align: middle;}
+table.dataTable thead .sorting.sorting_asc:after {background-image: url("../../img/icon/icon_arrow_up.png");}
+table.dataTable thead .sorting.sorting_desc:after {background-image: url("../../img/icon//icon_arrow_down.png");}
 div.dt-button-background {
   position: fixed;
   top: 0;

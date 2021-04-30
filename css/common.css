@@ -332,13 +332,13 @@ button {
 
 #wrap {
   width: calc(100% - 250px);
+  min-width: 1000px;
   position: relative;
   margin: 55px 0 0 250px;
   padding: 30px;
   background-color: #f5f5f5;
   transition: all 0.4s;
-  overflow-y: auto;
-  overflow-x: hidden; }
+  overflow: auto; }
   #wrap.Maximize {
     width: calc(100% - 90px);
     margin-left: 90px; }
@@ -361,6 +361,28 @@ button {
       color: #3e3e3e;
       margin-bottom: 25px;
       font-size: 18px; }
+    #wrap section .comboBox {
+      overflow: unset;
+      position: relative;
+      float: left;
+      width: auto !important;
+      height: auto !important; }
+      #wrap section .comboBox > ul {
+        display: none;
+        position: absolute;
+        top: 35px;
+        z-index: 11;
+        background: #fff;
+        border: 1px solid #154188;
+        border-radius: 4px; }
+        #wrap section .comboBox > ul > li {
+          padding: 10px;
+          text-align: center;
+          cursor: pointer;
+          transition: 0.4s; }
+          #wrap section .comboBox > ul > li:hover {
+            background: #0e2b5a;
+            color: #fff; }
 
 .contents {
   border: 1px solid #154188;
@@ -818,7 +840,7 @@ footer {
     width: 100px;
     height: 37px;
     background: #ececec;
-    border: 1px solid #dadada;
+    border: 1px solid #b1b6b7;
     box-sizing: border-box;
     text-align: center;
     line-height: 37px;
@@ -1044,19 +1066,23 @@ footer {
   float: left;
   width: 50px;
   margin: auto;
-  background: #dadada;
+  background: #b1b6b7;
   border-radius: 0;
   color: #fff; }
 
 .tableSection table .oneOnOffSetting div button.on,
-.twoLineTableSection table .oneOnOffSetting div button.on {
-  background: #309656; }
+.twoLineTableSection table .oneOnOffSetting div button.on,
+.tableSection table .twoOnOffSetting div button.on,
+.twoLineTableSection table .twoOnOffSetting div button.on,
+.tableSection table .fourOnOffSetting div button.on,
+.twoLineTableSection table .fourOnOffSetting div button.on {
+  background-color: #154188; }
 
 .tableSection table .twoOnOffSetting div,
 .twoLineTableSection table .twoOnOffSetting div {
   width: 80px;
   margin: 0 auto;
-  border: 1px solid #dadada;
+  border: 1px solid #b1b6b7;
   border-radius: 5px;
   overflow: hidden; }
 
@@ -1065,34 +1091,32 @@ footer {
   float: left;
   width: 40px;
   margin: auto;
-  background: #dadada;
+  background: #b1b6b7;
   border-radius: 0;
   color: #fff; }
 
-.tableSection table .twoOnOffSetting div button.on,
-.twoLineTableSection table .twoOnOffSetting div button.on {
-  background: #309656; }
-
 .tableSection table .fourOnOffSetting div,
 .twoLineTableSection table .fourOnOffSetting div {
-  width: 80px;
+  width: 4.2vw;
   margin: 0 auto;
-  border: 1px solid #dadada;
   border-radius: 5px;
   overflow: hidden; }
+
+.tableSection table .fourOnOffSetting div button {
+  font-size: 0.7vw; }
+  .tableSection table .fourOnOffSetting div button:before {
+    content: 'OFF'; }
+  .tableSection table .fourOnOffSetting div button.on:before {
+    content: 'ON'; }
 
 .tableSection table .fourOnOffSetting div button,
 .twoLineTableSection table .fourOnOffSetting div button {
   float: left;
-  width: 40px;
+  width: 50%;
   margin: auto;
-  background: #dadada;
+  background: #b1b6b7;
   border-radius: 0;
   color: #fff; }
-
-.tableSection table .fourOnOffSetting div button.on,
-.twoLineTableSection table .fourOnOffSetting div button.on {
-  background: #309656; }
 
 .dt-button-collection {
   position: absolute;
@@ -1120,13 +1144,13 @@ footer {
 
 .basicTable {
   width: 100%;
-  border: 1px solid #dadada;
+  border: 1px solid #b1b6b7;
   border-collapse: collapse; }
   .basicTable th {
-    border: 1px solid #dadada;
+    border: 1px solid #b1b6b7;
     border-collapse: collapse; }
   .basicTable td {
-    border: 1px solid #dadada;
+    border: 1px solid #b1b6b7;
     border-collapse: collapse; }
 
 .simple_table {

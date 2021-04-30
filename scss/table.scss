@@ -75,7 +75,7 @@
 				width: 100px;
 				height: 37px;
 				background: #ececec;
-				border: 1px solid #dadada;
+				border: 1px solid $subColor;
 				box-sizing: border-box;
 				text-align: center;
 				line-height: 37px;
@@ -121,6 +121,7 @@
 				position: sticky;
 				top: 0;
 				font-size: 16px;
+				
 			}
 		}
 		> tfoot{
@@ -339,7 +340,6 @@
 		line-height: 1.3;
 	}
 }
-
 .tableSection table .oneOnOffSetting div,
 .twoLineTableSection table .oneOnOffSetting div {
 	width: 50px;
@@ -352,19 +352,23 @@
 	float: left;
 	width: 50px;
 	margin: auto;
-	background: #dadada;
+	background: $subColor;
 	border-radius: 0;
 	color: #fff;
 }
 .tableSection table .oneOnOffSetting div button.on,
-.twoLineTableSection table .oneOnOffSetting div button.on {
-	background: #309656;
+.twoLineTableSection table .oneOnOffSetting div button.on,
+.tableSection table .twoOnOffSetting div button.on,
+.twoLineTableSection table .twoOnOffSetting div button.on,
+.tableSection table .fourOnOffSetting div button.on,
+.twoLineTableSection table .fourOnOffSetting div button.on{
+	background-color:$mainColor;
 }
 .tableSection table .twoOnOffSetting div,
 .twoLineTableSection table .twoOnOffSetting div {
 	width: 80px;
 	margin: 0 auto;
-	border: 1px solid #dadada;
+	border: 1px solid $subColor;
 	border-radius: 5px;
 	overflow: hidden;
 }
@@ -373,36 +377,31 @@
 	float: left;
 	width: 40px;
 	margin: auto;
-	background: #dadada;
+	background: $subColor;
 	border-radius: 0;
 	color: #fff;
 }
-.tableSection table .twoOnOffSetting div button.on,
-.twoLineTableSection table .twoOnOffSetting div button.on {
-	background: #309656;
-}
 .tableSection table .fourOnOffSetting div,
 .twoLineTableSection table .fourOnOffSetting div {
-	width: 80px;
+	width: 4.2vw;
 	margin: 0 auto;
-	border: 1px solid #dadada;
 	border-radius: 5px;
 	overflow: hidden;
+}
+.tableSection table .fourOnOffSetting div button{
+	font-size: 0.7vw;
+	&:before{content: 'OFF';}
+	&.on:before{content: 'ON';}
 }
 .tableSection table .fourOnOffSetting div button,
 .twoLineTableSection table .fourOnOffSetting div button {
 	float: left;
-	width: 40px;
+	width: 50%;
 	margin: auto;
-	background: #dadada;
+	background: $subColor;
 	border-radius: 0;
 	color: #fff;
 }
-.tableSection table .fourOnOffSetting div button.on,
-.twoLineTableSection table .fourOnOffSetting div button.on {
-	background: #309656;
-}
-
 .dt-button-collection {
 	position: absolute;
 	top: 40px !important;
@@ -436,14 +435,14 @@
 
 .basicTable {
 	width: 100%;
-	border: 1px solid #dadada;
+	border: 1px solid $subColor;
 	border-collapse: collapse;
 	th {
-		border: 1px solid #dadada;
+		border: 1px solid $subColor;
 		border-collapse: collapse;
 	}
 	td {
-		border: 1px solid #dadada;
+		border: 1px solid $subColor;
 		border-collapse: collapse;
 	}
 }
