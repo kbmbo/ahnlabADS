@@ -367,7 +367,7 @@ $(function() {
 	$(document).on("click",".datepickSelect .inputBox span",function() {
 		$(".dateLayer").fadeIn(200);
 	});
-	$(document).on("click",".dateLayer .btnBox .btn_cancel").click(function() {
+	$(document).on("click",".dateLayer .btnBox .btn_cancel",function() {
 		$(".dateLayer").fadeOut(300);
 	});
 
