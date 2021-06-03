@@ -414,9 +414,17 @@ $(function(){
 			$this.hide();
 			$this.prev(".edit-input").show();
 		});
-		});
+	});
+    //캠페인 등록 페이지 시간대 설정
+    if( $(".hhNo:checked").length == 24 ){
+        $("#hourAll").prop("checked", true);
+        $("#timeAll").prop("checked", true);
+        $(".ui-widget-content").addClass("ui-selected");
+    }
+    timeRtbSetting().load();
+    timeRtbSetting().events();
 });
-//Ad_write 체크 옵션 :s
+//캠페인 등록 페이지 체크 옵션 :s
 $(document).on("click",".week",function () {
     if ($(".week:checked").length == $(".week").length) {
         $("#allWeek,#weekdayAll,#weekendAll").prop("checked", true);
@@ -504,7 +512,27 @@ $(document).on("click",".cityListDel",function () {
     $('.citySelect > option').removeClass('check');
     $('.citySelect > option').eq(0).prop('selected', true);
 });
-//Ad_write 체크 옵션 :e
+function seltpcode(){
+    var cno = $("input:checkbox[name='advrtsTpCodes2[01][]']:checked").length;
+    if (cno <1){
+        alert("타겟팅 설정을 선택 하세요");
+        return;
+    }
+    $("#advertiserLoadForm").submit();
+}
+
+$(document).on("change","select[name='crtSize']",function () {
+    if($("select[name='crtSize'] option:selected").val()!=''){
+        if($("button.crt_list").hasClass('active')===false){
+            $("button.crt_list").addClass('active');
+        }
+    } else{
+        $("button.crt_list").removeClass('active')
+    }
+});
+
+
+//캠페인 등록 페이지 체크 옵션 :e
 
 // 전체 선택 스크립트
 $(document).on("click", '.allCheckItems input[name="allCheckbox"]', function() {

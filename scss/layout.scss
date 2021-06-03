@@ -71,6 +71,7 @@ h2.location> span:before{
 	clear: both;
 }
 .border-0{border:0 !important;}
+.border-b{border-bottom:1px solid #dadada !important;}
 .green {
 	color: #85b74e;
 }
@@ -354,6 +355,10 @@ button {
 		&:hover{
 			opacity: 0.9;
 		}
+	}
+	&.crt_list {
+		background-color:#ccc;color:#000;
+		&.active{background: $mainColor;color: #fff;}
 	}
 }
 

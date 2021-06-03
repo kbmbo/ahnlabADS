@@ -51,21 +51,43 @@
         <div id="wrap">
             <h2 class="location">광고<span></span>광고등록</h2>
             <div class="contents">
+                <form id="advertiserLoadForm" name="advertiserLoadForm" method="post">
+                    <section class="border-b">
+                        <input type="hidden" id="csrf" name="ci_csrf_token" value="">
+                        <input type="hidden" name="copySiteCode" id="loadSiteCode" value="">
+                        <input type="hidden" name="copySvcType" id="copySvcType" value="">
+                        <input type="hidden" name="mode" value="create">
+                        <input name="advrtsTpCodes[01][]" type="hidden" value="01">
+					    <!--베이스광고 -->
+                        <div>
+                            <h4>타겟팅 설정</h4>
+                            <div class="btn_checkbox">
+                                <ul>
+                                    <li><input type="checkbox" name="advrtsTpCodes2[01][]" id="c_01_01" class="hidden " value="01" onclick="seltpcode();"><label for="c_01_01">베이스 광고</label></li>
+                                    <li><input type="checkbox" name="advrtsTpCodes2[01][]" id="c_01_28" class="hidden " value="28" checked="" onclick="seltpcode();"><label for="c_01_28">오디언스 매칭</label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </form>
                 <section>
                     <div class="input50">
-                        <h4>광고제목</h4>
+                        <h4>캠페인명</h4>
                         <input type="text" placeholder="제목을 입력 하세요">
                     </div>
-                    <div class="input50">
-                        <h4>랜딩 URL</h4>
-                        <input type="text" placeholder="http://">
-                    </div>
+                </section>
+                <section>
                     <div>
-                        <h4>이미지 업로드</h4>
-                        <div action="/file-upload" class="dropzone dz-clickable dropzone_sample">
-                            <div class="dz-default dz-message"><span></span></div>
-                        </div>
-                    </div>
+						<h4>소재연결</h4>
+						<div class="customSelect">
+							<select name="crtSize">
+								<option value="">소재 사이즈 선택</option>
+								<option value="17" onclick="CCC();">300x250</option>
+								<option value="31" onclick="CCC();">970x90</option>
+							</select>
+						</div>
+						<button type="button" class="modalOpen crt_list" data-url="">이미지 선택</button>
+					</div>
                 </section>
                 <section>
                     <div class="optionBox">
@@ -260,15 +282,6 @@
                                     <p>* 드래그해서 선택할 수 있습니다.<br>* Ctrl로 여러 시간대를 선택 및 해제 할 수 있습니다.</p>
                                 </div>
                             </div>
-                            <script>
-                                if( $(".hhNo:checked").length == 24 ){
-                                    $("#hourAll").prop("checked", true);
-                                    $("#timeAll").prop("checked", true);
-                                    $(".ui-widget-content").addClass("ui-selected");
-                                }
-                                timeRtbSetting().load();
-                                timeRtbSetting().events();
-                            </script>
                         </div>
                     </div>
                 </section>
@@ -376,6 +389,8 @@
                         <h4 class="W-60">단가</h4>
                         <input type="number" />
                     </div>
+                </section>
+                <section>
                     <div>
                         <h4>지면 등록</h4>
                         <input type="text" class="w-200 mr-20" />
@@ -384,12 +399,16 @@
                     </div>
                     <div class="mediaRegister">
                         <div>
-                            <p>등록지면</p>
-                            <div></div>
+                            <p class="title" id="mediaScriptTitle">등록 지면 (<span id="mediaScriptCount">3</span>)</p>
+                            <div>
+                                <ul id="searchMediaScriptList"></ul>
+                            </div>
                         </div>
                         <div>
-                            <p>제외지면</p>
-                            <div></div>
+                            <p class="title" id="mediaScriptTitle">제외대상 지면(<span id="mediaScriptNoCount">2</span>)</p>
+                            <div>
+                                <ul id="searchMediaScriptList"></ul>
+                            </div>
                         </div>
                     </div>
                 </section>

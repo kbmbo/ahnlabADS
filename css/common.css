@@ -26,6 +26,9 @@ h2.location > span:before {
 .border-0 {
   border: 0 !important; }
 
+.border-b {
+  border-bottom: 1px solid #dadada !important; }
+
 .green {
   color: #85b74e; }
 
@@ -311,6 +314,12 @@ button {
     background-color: #4eb798; }
     button.regis:hover {
       opacity: 0.9; }
+  button.crt_list {
+    background-color: #ccc;
+    color: #000; }
+    button.crt_list.active {
+      background: #154188;
+      color: #fff; }
 
 #loadingBg {
   display: block;
