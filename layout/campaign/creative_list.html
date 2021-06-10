@@ -1,0 +1,213 @@
+<html lang="ko">
+    <head>
+        <title>ahnlab ADS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--파비콘 공통:s-->
+        <link rel="shortcut icon" href="https://image.ahnlab.com/favicon/favicon.ico">
+        <link rel="icon" sizes="16x16 32x32 64x64" href="https://image.ahnlab.com/favicon//favicon.ico">
+        <link rel="icon" type="image/png" sizes="152x160" href="https://image.ahnlab.com/favicon/favicon_152.png">
+        <link rel="icon" type="image/png" sizes="144x160" href="https://image.ahnlab.com/favicon/favicon_144.png">
+        <link rel="icon" type="image/png" sizes="120x120" href="https://image.ahnlab.com/favicon/favicon_120.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://image.ahnlab.com/favicon/favicon_96.png">
+        <link rel="icon" type="image/png" sizes="72x72" href="https://image.ahnlab.com/favicon/favicon_72.png">
+        <link rel="icon" type="image/png" sizes="57x57" href="https://image.ahnlab.com/favicon/favicon_57.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://image.ahnlab.com/favicon/favicon_32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://image.ahnlab.com/favicon/favicon_16.png">
+        <!--파비콘 공통:e-->
+        <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="../../css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="../../js/common.js"></script>
+        <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="../../js/chart.js"></script>
+        <script type="text/javascript" src="../../js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="../../js/table.js"></script>
+        <script type="text/javascript" src="../../js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+    </head>
+    <body naver_screen_capture_injected="true">
+        <div id="loadingBg" class="complete">
+            loading...
+        </div>
+        <header class="mainHeader">
+            <div data-include-path="../../layout/header.html"></div>
+        </header>
+        <div id="wrap">
+            <h2 class="location">광고<span></span>소재 관리</h2>
+            <section>
+                <ul class="crtstatus">
+                    <li class="A">
+                       <h4>전체</h4>
+                       <span>100</span>
+                    </li>
+                    <li class="C">
+                        <h4>승인</h4>
+                        <span>100</span>
+                    </li>
+                    <li class="W">
+                        <h4>대기</h4>
+                        <span>100</span>
+                    </li>
+                    <li class="R">
+                        <h4>반려</h4>
+                        <span>100</span>
+                    </li>
+                </ul>
+            </section>
+            <!-- start 검색 폼:s-->
+            <section class="optionBox">
+                <h3 class="hidden">옵션 박스</h3>
+                <div class="date">
+                    <h4 class="hidden">날짜선택</h4>
+                    <div class="calendar">
+                        <div class="icon"></div>
+                        <div class="dateChoice">
+                            <input type="text" class="dateInput" value="" readonly="readonly" autocomplete="false">
+                            <input type="hidden" name="sDate" value="20210301">
+                            <input type="hidden" name="eDate" value="20210315">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 검색 폼:e-->
+            <section class="chartBox">
+                <div>
+                    <ul class="chartTap">
+                        <li class="active" onclick="showChart( 1, 1)">클릭률</li>
+                        <li onclick="showChart(2, 1)">노출수</li>
+                        <li onclick="showChart( 3, 1)">클릭수</li>
+                    </ul>
+                    <div class="chart" id="chart1" data-highcharts-chart="0">
+                        <!-- <div id="highcharts-rj26pzw-0" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 1548px; height: 230px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1548" height="230" viewBox="0 0 1548 230"><desc>Created with Highcharts 6.1.4</desc><defs><clipPath id="highcharts-rj26pzw-1"><rect x="0" y="0" width="1528" height="205" fill="none"></rect></clipPath></defs><rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="1548" height="230" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="10" y="10" width="1528" height="205"></rect><g class="highcharts-grid highcharts-xaxis-grid " data-z-index="1"></g><g class="highcharts-grid highcharts-yaxis-grid " data-z-index="1"></g><rect fill="none" class="highcharts-plot-border" data-z-index="1" x="10" y="10" width="1528" height="205"></rect><g class="highcharts-axis highcharts-xaxis " data-z-index="2"><path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1" data-z-index="7" d="M 10 215.5 L 1538 215.5"></path></g><g class="highcharts-axis highcharts-yaxis " data-z-index="2"><path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1" data-z-index="7" d="M 9.5 10 L 9.5 215"></path></g><g class="highcharts-series-group" data-z-index="3"><g data-z-index="0.1" class="highcharts-series highcharts-series-0 highcharts-column-series  highcharts-tracker" transform="translate(10,10) scale(1 1)" clip-path="url(#highcharts-rj26pzw-1)"></g><g data-z-index="0.1" class="highcharts-markers highcharts-series-0 highcharts-column-series " transform="translate(10,10) scale(1 1)" clip-path="none"></g></g><text x="774" text-anchor="middle" class="highcharts-title" data-z-index="4" style="color:#333333;font-size:18px;fill:#333333;" y="24"></text><text x="774" text-anchor="middle" class="highcharts-subtitle" data-z-index="4" style="color:#666666;fill:#666666;" y="24"></text><g class="highcharts-axis-labels highcharts-xaxis-labels " data-z-index="7"></g><g class="highcharts-axis-labels highcharts-yaxis-labels " data-z-index="7"></g></svg></div> -->
+                    </div>
+                </div>
+            </section>
+            <section class="tableSection">
+                <div class="clear extraFeatures">
+                    <div class="leftBox">
+                        <div class="customSelect setType">
+                            <h4>소재사이즈</h4>
+                            <select name="crtSize" onchange="crt_search()">
+                                <option value="">전체</option>
+                                <option value="17">300x250</option>
+                                <option value="31">970x90</option>
+                            </select>
+                        </div>
+                        <div class="customSelect setType">
+                            <h4>상태</h4>
+                            <select name="crtstatus" onchange="crt_search()">
+                                <option value="">전체</option>
+                                <option value="W">대기</option>
+                                <option value="C">승인</option>
+                                <option value="R">반려</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rightBox">
+                        <input type="text" class="w-200" id="CrtKeyword" data-type="creative" name="crtkeyword" placeholder="검색어를 입력하세요." value="">
+                        <button type="button" class="search crtSearchButton" data-type="creative" onclick="crt_search()">검색</button>
+                        <button class="regis mr-10 urlBtn" type="button" id="campaignImageCreate" data-url="/layout/campaign/creative_form.html">소재 등록</button>
+                        <button type="button" class="excelDown">엑셀</button>
+                    </div>
+                </div>
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                    <table id="DataTables_Table_0" class="dataTable no-footer crtstatus" role="grid">
+                        <colgroup>
+                            <col width="7%" />
+                            <col width="11%" />
+                            <col width="15%" />
+                            <col width="15%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="6%" />
+                            <col width="11%" />
+                            <col width="5%" />
+                        </colgroup>
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_disabled" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="검수상태: activate to sort column descending">검수상태</th>
+                                <th class="sorting_disabled" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="광고주명(ID): activate to sort column descending">광고주명(ID)</th>
+                                <th class="sorting_disabled" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="소재명: activate to sort column descending">소재명</th>
+                                <th class="sorting_disabled" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="미리보기: activate to sort column descending">미리보기</th>
+                                <th class="sorting_disabled" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="노출수: activate to sort column descending">노출수</th>
+                                <th class="sorting_disabled" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="클릭수: activate to sort column descending">클릭수</th>
+                                <th class="sorting_disabled" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="클릭률: activate to sort column descending">클릭률</th>
+                                <th class="sorting_disabled" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="연결캠페인: activate to sort column descending">연결캠페인</th>
+                                <th class="sorting_disabled" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="최종업데이트: activate to sort column descending">최종업데이트</th>
+                                <th class="sorting_disabled" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="관리: activate to sort column descending">관리</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="C">승인</td>
+                                <td>광고주A(AAA)</td>
+                                <td>소재A</td>
+                                <td class="previewImg"><img src="http://img.mobon.net/Frtb/images/preview/300x250/e300-250.png" /></td>
+                                <td>100</td>
+                                <td>5</td>
+                                <td class="PCT blue">10.00</td>
+                                <td>10</td>
+                                <td>2021-06-11 00:33:58</td>
+                                <td><button class="edit"></button></td>
+                            </tr>
+                            <tr>
+                                <td class="R">반려</td>
+                                <td>광고주A(AAA)</td>
+                                <td>소재A</td>
+                                <td class="previewImg"><img src="http://img.mobon.net/Frtb/images/preview/728x90/ca728x90.jpg" /></td>
+                                <td>100</td>
+                                <td>5</td>
+                                <td class="PCT blue">10.00</td>
+                                <td>10</td>
+                                <td>2021-06-11 00:33:58</td>
+                                <td><button class="edit"></button></td>
+                            </tr>
+                            <tr>
+                                <td class="W">대기</td>
+                                <td>광고주A(AAA)</td>
+                                <td>소재A</td>
+                                <td class="previewImg"><img src="http://img.mobon.net/Frtb/images/preview/300x250/e300-250.png" /></td>
+                                <td>100</td>
+                                <td>5</td>
+                                <td class="PCT blue">10.00</td>
+                                <td>10</td>
+                                <td>2021-06-11 00:33:58</td>
+                                <td><button class="edit"></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="page-nav-box">
+                        <div class="page-nav">
+                            <div class="prev"></div>
+                            <ul>
+                                <li class="active">1</li>
+                                <li>2</li>
+                                <li>3</li>
+                            </ul>
+                            <div class="next"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer"></footer>
+        </div>
+    </body>
+    <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</html>

@@ -20,7 +20,7 @@
   @include WH(100%,100%);
   padding-top: 3%;
   overflow: auto;
-  background-color: rgba(86, 98, 109, .5);
+  background-color: rgba(0,0,0, .5);
   .modalContent{
     padding: 20px;
     margin:auto;
@@ -32,82 +32,88 @@
       padding:15px 5px 0 20px;
       overflow: hidden;
       > div{
-        @include WH(100%,93%);
+        @include WH(100%,86%);
         overflow-x: hidden;
         overflow-y: auto;
         padding-right:10px;
       }
     }
-    &.pop_admix_setting{
-      width: 300px;
-      margin-top: 150px;
-      ol li{
-        list-style:unset;
-        list-style-position:inside;
-        cursor: grab;
-        font-size: 16px;
-        font-weight: 500;
-        @include b-box(3px);
-        @include lineH(40px);
-        margin-top:10px;
-        padding:0 10px;
-        &:first-child{margin-top: 20px;}
-        &:active{cursor: grabbing;}
+    &.crt_pop_list{
+      width: 80%;
+      max-height: 93%;
+      h1.modalMainTitle:after{
+        content: ' 사이즈 소재 이미지';
       }
-    }
-    &.pop_exposure_ratio{
-      width: 500px;
-      margin-top: 200px;
-      p {
-        font-size: 20px;
-        text-align: center;
-        font-weight: 600;
-        margin-top: 10px;
-        line-height: 60px;
-      }
-    }
-    &.pop_month_traffic{
-      width: 900px;
-      margin-top: 100px;
-      .chart,.txtBox{@include WH(50%,400px);float: left}
-      .txtBox{
-        padding:48px 0 0 10px;
-        dl{
-          margin-bottom: 15px;
-          dt{
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 8px;
-          }
-          dd{font-size: 17px; line-height: 25px;}
-        }
-        p{color: $mainColor;font-size: 22px;font-weight: 600;}
-      }
-    }
-    &.pop_external_match{
-      width: 480px;
-      margin-top: 100px;
-      .optionBox3{
-        margin-top: 20px;
-        .conBox{
-          @include WH(100%,50px);
-          border-bottom: #dadada 1px solid;
-          &:first-child{border-top: #dadada 1px solid;}
-          h3{
-            line-height: 49px;
-            float: left;
-            margin-right: 20px;
-            background-color: $mainColor;
-            color: #fff;
-            padding: 0;
+      .customSelect{margin-top: 10px;}
+      .crtImg-con{
+        width: 100%;
+        max-height:calc(100% - 280px);
+        float: left;
+        margin: 20px 0;
+        overflow-y: auto;
+        .crtImgSize{
+          float: left;
+          width: 100%;
+          padding-left:15px;
+          border-bottom: 1px solid #dadada;
+          margin-bottom: 20px;
+          &:last-of-type{border-bottom:0;margin-bottom:0;}
+          h4{margin-bottom: 10px;}
+          p{
             font-size: 16px;
             text-align: center;
-            width: 35%;
-            border-bottom: #fff 1px solid;
+            &.noImg{
+              display: none;
+            }
           }
-          .customSelect,input{margin: 9px 0;}
-        }
+          ul li{
+            position: relative;
+            float: left;
+            width: calc(100%/5 - 12px);
+            margin:0 12px 10px 0;
+            .crtImg{
+              position: relative;
+              cursor: pointer;
+              border: 1px solid #d0d0d0;
+              overflow: hidden;
+              img{
+                max-width: 100%;
+                min-height: 70px;
+                max-height: 500px;
+                object-fit: contain;
+                display: block;
+                margin: 0 auto;
+              }
+            }
+            span{
+              position: absolute;
+              bottom: 41px;
+              right: 1px;
+              color: #fff;
+              font-size: 20px;
+              background-color: rgba(0,0,0, .4);
+              padding: 0 5px;
+              cursor: pointer;
+            }
+            p{
+              @include lineH(40px);
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+            &.chk .crtImg:after{
+              $boder:4px;
+              content: '';
+              border: $boder solid $deleteColor;
+              @include WH(calc(100% - #{$boder*2}),calc(100% - #{$boder*2}));
+              display: block;
+              position: absolute;
+              top: 0
+            }
+          }
+        } 
       }
+      .modalFooter{width: 100%;float: left;}
     }
     .modalSection{margin-top: 20px;}
     .XBtn {
@@ -130,6 +136,26 @@
         float: unset;
         &:first-child{background-color: #d0d0d0;}
       }
+    }
+  }
+}
+#crt_pop_list .imgBig{
+  position: fixed;
+  top: 0;
+  @include WH(100%,100%);
+  background-color: rgba(0,0,0, .6);
+  display: flex;
+  align-items: center;
+  > div{
+    background-color: #fff;
+    padding: 5px 30px 30px;
+    margin: 0 auto;
+    border-radius:5px;
+    p{font-size: 25px; text-align: right;cursor: pointer;}
+    img{
+      object-fit: contain;
+      max-height: 100%;
+      max-width: 100%;
     }
   }
 }

@@ -1,0 +1,320 @@
+<html lang="ko">
+    <head>
+        <title>ahnlab ADS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--파비콘 공통:s-->
+        <link rel="shortcut icon" href="https://image.ahnlab.com/favicon/favicon.ico">
+        <link rel="icon" sizes="16x16 32x32 64x64" href="https://image.ahnlab.com/favicon//favicon.ico">
+        <link rel="icon" type="image/png" sizes="152x160" href="https://image.ahnlab.com/favicon/favicon_152.png">
+        <link rel="icon" type="image/png" sizes="144x160" href="https://image.ahnlab.com/favicon/favicon_144.png">
+        <link rel="icon" type="image/png" sizes="120x120" href="https://image.ahnlab.com/favicon/favicon_120.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://image.ahnlab.com/favicon/favicon_96.png">
+        <link rel="icon" type="image/png" sizes="72x72" href="https://image.ahnlab.com/favicon/favicon_72.png">
+        <link rel="icon" type="image/png" sizes="57x57" href="https://image.ahnlab.com/favicon/favicon_57.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://image.ahnlab.com/favicon/favicon_32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://image.ahnlab.com/favicon/favicon_16.png">
+        <!--파비콘 공통:e-->
+        <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="../../css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="../../js/common.js"></script>
+        <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="../../js/chart.js"></script>
+        <script type="text/javascript" src="../../js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="../../js/table.js"></script>
+        <script type="text/javascript" src="../../js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+    </head>
+    <body naver_screen_capture_injected="true">
+        <div id="loadingBg" class="complete">
+            loading...
+        </div>
+        <header class="mainHeader">
+            <div data-include-path="../../layout/header.html"></div>
+        </header>
+        <div id="wrap">
+            <h2 class="location">광고<span></span>캠페인 관리</h2>
+            <!-- start 검색 폼:s-->
+            <section class="optionBox">
+                <h3 class="hidden">옵션 박스</h3>
+                <div class="date">
+                    <h4 class="hidden">날짜선택</h4>
+                    <div class="calendar">
+                        <div class="icon"></div>
+                        <div class="dateChoice">
+                            <input type="text" class="dateInput" value="" readonly="readonly" autocomplete="false">
+                            <input type="hidden" name="sDate" value="20210301">
+                            <input type="hidden" name="eDate" value="20210315">
+                        </div>
+                    </div>
+                </div>
+                <div class="setTypeBox">
+                    <div class="clear setType">
+                        <h4>형태</h4>
+                        <div>
+                            <input type="radio" name="platformType" id="platformType00" class="hidden" value="00" checked="checked">
+                                <label for="platformType00">전체</label>
+                            <input type="radio" name="platformType" id="platformType01" class="hidden" value="01">
+                                <label for="platformType01">온라인</label>
+                            <input type="radio" name="platformType" id="platformType02" class="hidden" value="02">
+                                <label for="platformType02">모바일</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttonBox">
+                    <button type="button" id="dateButton">검색</button>
+                </div>
+            </section>
+            <!-- 검색 폼:e-->
+            <section class="tableSection">
+                <div class="comboBox">
+                    <button type="button" class="mr-10">게재</button>
+                    <ul>
+                        <li class="choiceOn" btntype="all" actype="Y">전체</li>
+                        <li class="choiceOn" btntype="online" actype="Y">온라인</li>
+                        <li class="choiceOn" btntype="mobile" actype="Y">모바일</li>
+                    </ul>
+                </div>
+                <div class="comboBox">
+                    <button type="button" class="mr-10">중지</button>
+                    <ul>
+                        <li class="choiceOff" btntype="all" actype="N">전체</li>
+                        <li class="choiceOff" btntype="online" actype="N">온라인</li>
+                        <li class="choiceOff" btntype="mobile" actype="N">모바일</li>
+                    </ul>
+                </div>
+                <button type="button" id="campaignMultiCopy">복사</button>
+                <div class="rightBox">
+                    <button type="button" class="regis mr-10 urlBtn" data-url="/layout/campaign/multi_form.html">캠페인 등록</button>
+                    <button type="button" class="excelDown">엑셀</button>
+                </div>
+                <div>
+                    <table class="allCheckItems checkboxArea dataTable">
+                        <colgroup>
+                            <col width="5%" />
+                            <col width="12%" />
+                            <col width="20%" />
+                            <col width="12%" />
+                            <col width="12%" />
+                            <col width="10%" />
+                            <col width="12%" />
+                            <col width="12%" />
+                            <col width="5%" />
+                        </colgroup>
+                        <thead>
+                            <tr role="row">
+                                <th></th>
+                                <th>온라인/모바일</th>
+                                <th class="sorting">캠페인명</th>
+                                <th class="sorting">노출수</th>
+                                <th class="sorting">클릭수</th>
+                                <th class="sorting">클릭률</th>
+                                <th class="sorting">일예산</th>
+                                <th class="sorting">소진금액</th>
+                                <th>관리</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="totalFooter bold">
+                                <td>
+                                    <input type="checkbox" name="allCheckbox" id="allChk" class="none">
+                                    <label for="allChk"></label>
+                                </td>
+                                <td colspan="2">전체</td>
+                                <td>999</td>
+                                <td>999</td>
+                                <td class="PCT blue">99.999</td>
+                                <td class="WON green">9999</td>
+                                <td class="WON red">9999</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Chk" id="Chk1" class="none">
+                                    <label for="Chk1"></label>
+                                </td>
+                                <td class="fourOnOffSetting">
+                                    <div class="clear">
+                                        <button type="button" data-state="web" title="PC" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""class="on"></button>
+                                        <button type="button" data-state="mobile" title="MOBILE" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""></button>
+                                    </div>
+                                </td>
+                                <td>토스트테스트_0331<i class="search_btn" onclick="window.open('adgubun_list_pop.html','pop','resizable=no,width=1000,height=800,scrollbars=no');"></i></td>
+                                <td>999</td>
+                                <td>999</td>
+                                <td class="PCT blue">99.9</td>
+                                <td class="WON green">9999</td>
+                                <td class="WON red">9999</td>
+                                <td><button class="edit" data-url="/layout/ad/Ad_write.html"></button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Chk" id="Chk2" class="none">
+                                    <label for="Chk2"></label>
+                                </td>
+                                <td class="fourOnOffSetting">
+                                    <div class="clear">
+                                        <button type="button" data-state="web" title="PC" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""class="on"></button>
+                                        <button type="button" data-state="mobile" title="MOBILE" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""></button>
+                                    </div>
+                                </td>
+                                <td>토스트테스트_0331</td>
+                                <td>999</td>
+                                <td>999</td>
+                                <td class="PCT blue">99.9</td>
+                                <td class="WON green">9999</td>
+                                <td class="WON red">9999</td>
+                                <td><button class="edit"></button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Chk" id="Chk3" class="none">
+                                    <label for="Chk3"></label>
+                                </td>
+                                <td class="fourOnOffSetting">
+                                    <div class="clear">
+                                        <button type="button" data-state="web" title="PC" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""class="on"></button>
+                                        <button type="button" data-state="mobile" title="MOBILE" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""></button>
+                                    </div>
+                                </td>
+                                <td>나이키 홍보</td>
+                                <td>999</td>
+                                <td>999</td>
+                                <td class="PCT blue">99.9</td>
+                                <td class="WON green">9999</td>
+                                <td class="WON red">9999</td>
+                                <td><button class="edit"></button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Chk" id="Chk4" class="none">
+                                    <label for="Chk4"></label>
+                                </td>
+                                <td class="fourOnOffSetting">
+                                    <div class="clear">
+                                        <button type="button" data-state="web" title="PC" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""class="on"></button>
+                                        <button type="button" data-state="mobile" title="MOBILE" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""></button>
+                                    </div>
+                                </td>
+                                <td>나이키 홍보</td>
+                                <td>999</td>
+                                <td>999</td>
+                                <td class="PCT blue">99.9</td>
+                                <td class="WON green">9999</td>
+                                <td class="WON red">9999</td>
+                                <td><button class="edit"></button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Chk" id="Chk5" class="none">
+                                    <label for="Chk5"></label>
+                                </td>
+                                <td class="fourOnOffSetting">
+                                    <div class="clear">
+                                        <button type="button" data-state="web" title="PC" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""class="on"></button>
+                                        <button type="button" data-state="mobile" title="MOBILE" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""></button>
+                                    </div>
+                                </td>
+                                <td>나이키 홍보</td>
+                                <td>999</td>
+                                <td>999</td>
+                                <td class="PCT blue">99.9</td>
+                                <td class="WON green">9999</td>
+                                <td class="WON red">9999</td>
+                                <td><button class="edit"></button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Chk" id="Chk6" class="none">
+                                    <label for="Chk6"></label>
+                                </td>
+                                <td class="fourOnOffSetting">
+                                    <div class="clear">
+                                        <button type="button" data-state="web" title="PC" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""class="on"></button>
+                                        <button type="button" data-state="mobile" title="MOBILE" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""></button>
+                                    </div>
+                                </td>
+                                <td>나이키 홍보</td>
+                                <td>999</td>
+                                <td>999</td>
+                                <td class="PCT blue">99.9</td>
+                                <td class="WON green">9999</td>
+                                <td class="WON red">9999</td>
+                                <td><button class="edit"></button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Chk" id="Chk7" class="none">
+                                    <label for="Chk7"></label>
+                                </td>
+                                <td class="fourOnOffSetting">
+                                    <div class="clear">
+                                        <button type="button" data-state="web" title="PC" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""class="on"></button>
+                                        <button type="button" data-state="mobile" title="MOBILE" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""></button>
+                                    </div>
+                                </td>
+                                <td>나이키 홍보</td>
+                                <td>999</td>
+                                <td>999</td>
+                                <td class="PCT blue">99.9</td>
+                                <td class="WON green">9999</td>
+                                <td class="WON red">9999</td>
+                                <td><button class="edit"></button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Chk" id="Chk8" class="none">
+                                    <label for="Chk8"></label>
+                                </td>
+                                <td class="fourOnOffSetting">
+                                    <div class="clear">
+                                        <button type="button" data-state="web" title="PC" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""class="on"></button>
+                                        <button type="button" data-state="mobile" title="MOBILE" data-value="" data-keys="" data-sthour="" data-edhour="" data-mediacnt=""></button>
+                                    </div>
+                                </td>
+                                <td>나이키 홍보</td>
+                                <td>999</td>
+                                <td>999</td>
+                                <td class="PCT blue">99.9</td>
+                                <td class="WON green">9999</td>
+                                <td class="WON red">9999</td>
+                                <td><button class="edit"></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="page-nav-box">
+                        <div class="page-nav">
+                            <div class="prev"></div>
+                            <ul>
+                                <li class="active">1</li>
+                                <li>2</li>
+                                <li>3</li>
+                            </ul>
+                            <div class="next"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer"></footer>
+        </div>
+    </body>
+    <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</html>

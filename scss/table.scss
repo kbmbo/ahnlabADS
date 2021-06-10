@@ -217,127 +217,27 @@
 		}
 	}
 }
-.twoLineTableSection {
-	position: relative;
-	padding: 15px;
-	box-sizing: border-box;
-	margin-top: 20px;
-	overflow: auto;
-	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-	background-color: #ffffff;
-	border: solid 1px #eaeaea;
-	> div {
-		overflow: auto;
-	}
-	.detailTable {
-		tr {
-			cursor: pointer;
-			&.detail {
-				display: none;
-				background: #f7f7f7;
-				&.show {
-					display: block;
-				}
-			}
-		}
-	}
-	table {
-		width: 5000px;
-		border-collapse: collapse;
-		table-layout: fixed;
-		text-align: center;
-		th,
-		td,
-		tfoot td {
-			width: 130px;
-			box-sizing: border-box;
-			border-collapse: collapse;
-			vertical-align: middle;
-		}
-		img {
-			height: 20px;
-			margin-right: 5px;
-		}
-		> thead,
-		> tfoot {
-			display: table;
-			height: 60px;
-			background: #f4f4f4;
-			font-size: 13px;
-		}
-		> thead {
-			th {
-				color: #3e3e3e;
-				cursor: pointer;
-			}
-			tr {
-				&:nth-of-type(1) {
-					border-top: 1px solid #ccc;
-					th {
-						box-shadow: 1px 1px 0 0 #ccc;
-						&:last-child {
-							box-shadow: 0 1px 0 0 #ccc;
-						}
-					}
-				}
-				&:nth-of-type(2) {
-					border-top: 1px solid #ccc;
-					th {
-						box-shadow: 1px 1px 0 0 #ccc;
-						&:last-child {
-							box-shadow: 0 1px 0 0 #ccc;
-						}
-					}
-				}
-			}
-		}
-		tbody {
-			display: block;
-			height: 600px;
-			overflow: auto;
-			overflow-x: hidden;
-			font-size: 12px;
-			table-layout: fixed;
-			> tr {
-				display: table;
-				width: 100%;
-				table-layout: fixed;
-				border-bottom: 1px solid #eaeaea;
-				&:hover {
-					background: #f4f4f4;
-				}
-				> td.icon {
-					a {
-						display: inline-block;
-						width: 25px;
-						height: 25px;
-						margin-top: 5px;
-						border-radius: 5px;
-					}
-				}
-				> td > a {
-					color: #000;
-				}
-				> td:first-child {
-					background: transparent;
-				}
-			}
-		}
-		button.textBtn {
-			display: block;
-			width: 50px;
-			padding: 7px 9px;
-			margin: 0 auto;
-			background: #309656;
-			border-radius: 5px;
-			font-size: 12px;
+.popup{
+	padding:$conP;
+	.subMenu-list{margin:20px 0;}
+	.popTable{
+		$bColor:#3e3e3e;
+		overflow-y: auto;
+		height: 75%;
+		table{
+			width: 97%;
 			text-align: center;
+			border: 1px solid $bColor;
+			border-collapse: collapse;
+			margin-bottom: 20px;
+			> tfoot th, > tbody th{background-color: #f4f4f4;}
+			td,th{
+				border-right: 1px solid $bColor;
+				border-bottom: 1px solid $bColor;
+				padding:10px 15px;
+				vertical-align: middle;
+			}
 		}
-	}
-	tbody > tr > td,
-	tfoot > tr > td {
-		height: 40px;
-		line-height: 1.3;
 	}
 }
 .tableSection table .oneOnOffSetting div,
@@ -427,63 +327,6 @@
 				&.active {
 					text-decoration: none;
 					color: #000;
-				}
-			}
-		}
-	}
-}
-
-.basicTable {
-	width: 100%;
-	border: 1px solid $subColor;
-	border-collapse: collapse;
-	th {
-		border: 1px solid $subColor;
-		border-collapse: collapse;
-	}
-	td {
-		border: 1px solid $subColor;
-		border-collapse: collapse;
-	}
-}
-
-.simple_table {
-	position: relative;
-	padding: 15px;
-	box-sizing: border-box;
-	margin-top: 20px;
-	overflow: auto;
-	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-	background-color: #ffffff;
-	border: solid 1px #eaeaea;
-	&:after {
-		content: "";
-		display: block;
-		clear: both;
-	}
-	> div {
-		table {
-			width: 100%;
-			text-align: center;
-			border-collapse: collapse;
-			table-layout: fixed;
-			> thead {
-				background: #f4f4f4;
-				font-size: 13px;
-				th {
-					height: 37px;
-					vertical-align: middle;
-					color: #3e3e3e;
-				}
-			}
-			> tbody {
-				td {
-					height: 37px;
-					vertical-align: middle;
-					color: #3e3e3e;
-				}
-				&:last-child {
-					border-bottom: 1px solid #f4f4f4;
 				}
 			}
 		}

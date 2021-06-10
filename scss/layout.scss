@@ -1,11 +1,12 @@
 @charset "UTF-8";
 
 $mainColor: #154188;
-$mainColor2:#0e2b5a;
-$subColor:#b1b6b7;
+$mainColor2:#0e2b5a;$subColor:#b1b6b7;
 $errorColor: #ff2c2c;
 $deleteColor: #ff4545;
 $menuDefaultColor: #5e5e5e;
+$C-Color:#2163ce;
+$W-Color:#85b74e;
 @mixin floatRelease {
 	content: "";
 	display: block;
@@ -356,12 +357,7 @@ button {
 			opacity: 0.9;
 		}
 	}
-	&.crt_list {
-		background-color:#ccc;color:#000;
-		&.active{background: $mainColor;color: #fff;}
-	}
 }
-
 
 #loadingBg {
 	display: block;
@@ -446,7 +442,7 @@ $navW2:90px;
 	}
 }
 /////////////#wrap:e////////////////
-////////////content 구성 요소:s(모달공통포함)///////////////
+////////////content 구성 요소:s///////////////
 .contents{
 	@include b-box(10px);
 	background-color: #fff;
@@ -504,10 +500,84 @@ $navW2:90px;
 						@include lineH($pH);
 					}
 					> div{
-						padding: 20px;
-						height: $divH - $pH;
+						margin: 20px 10px 20px 20px;
+						height: $divH - ($pH + 40px);
 						overflow-y: auto;
 						overflow-x: hidden;
+						&.excluded > ul > li {
+							width: 100%;
+							@include lineH(20px);
+							margin: 10px 10px 5px;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							float: left;
+							button{
+								width: 20px;
+								@include lineH(20px);
+								padding:0;
+								margin-right: 10px;
+								font-size: 25px;
+								color: #fff;
+								&.mediaScriptAdd{background-color: $mainColor;}
+								&.mediaScriptDelete{background-color: $subColor;}
+							}
+						}
+					}
+				}
+			}
+			&.crtRegList{
+				height: 70px;
+				overflow: hidden;
+				h4{height: 100%;}
+				li{
+					height: 100%;
+					float: left;
+					margin-right: 10px;
+					position: relative;
+					display: flex;
+					align-items: center;
+					img{
+						object-fit: contain;
+						height: 100%;
+					}
+					p{display: none;}
+					&:hover {
+						p{
+							display: -webkit-box;
+							display: box;
+							overflow:hidden;
+							text-overflow: ellipsis;
+							word-break:break-all;
+							-webkit-box-orient:vertical;
+							-webkit-line-clamp:3;
+							position: absolute;
+							text-align: center;
+							color: #fff;
+							font-size: 13px;
+							padding: 0 5px;
+							width: 100%;
+						}
+						&:before{
+							position: absolute;
+							top: 0;
+							content: '';
+							display: block;
+							@include WH(100%,100%);
+							background-color: rgba(0,0,0,.7);
+						}
+					}
+				}
+			}
+			.dropzonePreview{
+				li{
+					position: relative;
+					float: left;
+					margin-right: 20px;
+					img{
+						height: 50px;
+						object-fit: contain;
+						display: block;
 					}
 				}
 			}
@@ -862,8 +932,51 @@ $navW2:90px;
 		> ul.price-list > li {width: calc(100%/3 - 15px);}
 	}
 }
+ul.crtstatus{
+	display: flex;
+	justify-content:space-between;
+	li{
+		width: calc(100%/4 - 30px);
+		background-color: #fff;
+		@include b-box(10px);
+		@include lineH(45px);
+		overflow: hidden;
+		&.A h4{background-color: $mainColor;}
+		&.C h4{background-color: $C-Color;}
+		&.W h4{background-color: $W-Color;}
+		&.R h4{background-color: $deleteColor;}
+		> h4{
+			width: 30%;
+			color: #fff;
+			text-align: center;
+			float: left;
+		}
+		span{ padding-left: 15px;font-size: 18px;}
+	}
+	
+}
+table.crtstatus{
+	td{
+		height: 90px !important;
+		font-size: 14px;
+		&.previewImg{
+			position: relative;
+			height: 100%;
+			img{object-fit: contain; @include WH(100%,100%);}
+		}
+	}
+	.C{color: $C-Color;}
+	.W{color: $W-Color;}
+	.R{color: $deleteColor;}
+}
+.viewImg{
+	z-index: 9999;
+	position:absolute;
+	border:1px solid #000;
+	display:none;
+}
 
-////////////content 구성 요소:e(모달공통포함)///////////////
+////////////content 구성 요소:e///////////////
 /////////footer:s///////////
 footer {
 	position: relative;

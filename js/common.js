@@ -320,41 +320,41 @@ common.daterangepicker = function (){
 // };
 
 // 모달 오픈 script
-// common.modal = function(){
-//     // 모달 사용법
-//     // 1. 클릭 대상에 클래스(modalOpen), modal속성(오픈할려고 하는 모달 id)를 추가
-//     // 2. modalOpen 클래스를 가진 타겟을 클릭하면 해당 타겟의 modal 속성값을 저장
-//     // 3. 변수로 modal 속성값을 id로 변환
-//     // 4. 해당 id 값을 가진 모달에 display block으로 모달 오픈
-//     // Close
-//     // 1. 윈도우 화면을 클릭하면 오픈되어 있는 모달 객체를 저장.
-//     // 2. 해당 id 값을 가진 객체가 모달 오픈시 저장해놨던 id 값을 가진 객체의 값이 같으면 display none으로 모달 종료
-//     saveModalName = null;
-//     $(document).on('click','.modalOpen', function(){
-//         saveModalName = $(this).data('modal');
-//         openTarget = $('#' + saveModalName);
-//         openTarget.css('display','block');
-//         $('body').css('overflow','hidden');
-//         $('body').attr('scroll','no');
-//     });
-//     $(document).on('click','.modalContent .cancel', function(){
-//         openTarget.css('display','none');
-//         $('body').css('overflow','auto');
-//         $('body').attr('scroll','yes');
-//     });   
-// 	function modalClose(event) {
-//         var a = event.target;
-//         var b = a.id;
-//         if(b == saveModalName) {
-//             a.style.display = 'none';
-//             $('body').css('overflow','auto');
-//             $('body').attr('scroll','yes');
-//         }
-//     }
-//     window.onclick = function(event) {
-//         modalClose(event);
-//     }
-// };
+common.modal = function(){
+    // 모달 사용법
+    // 1. 클릭 대상에 클래스(modalOpen), modal속성(오픈할려고 하는 모달 id)를 추가
+    // 2. modalOpen 클래스를 가진 타겟을 클릭하면 해당 타겟의 modal 속성값을 저장
+    // 3. 변수로 modal 속성값을 id로 변환
+    // 4. 해당 id 값을 가진 모달에 display block으로 모달 오픈
+    // Close
+    // 1. 윈도우 화면을 클릭하면 오픈되어 있는 모달 객체를 저장.
+    // 2. 해당 id 값을 가진 객체가 모달 오픈시 저장해놨던 id 값을 가진 객체의 값이 같으면 display none으로 모달 종료
+    saveModalName = null;
+    $(document).on('click','.modalOpen', function(){
+        saveModalName = $(this).data('modal');
+        openTarget = $('#' + saveModalName);
+        openTarget.css('display','block');
+        $('body').css('overflow','hidden');
+        $('body').attr('scroll','no');
+    });
+    $(document).on('click','.modalContent .cancel', function(){
+        openTarget.css('display','none');
+        $('body').css('overflow','auto');
+        $('body').attr('scroll','yes');
+    });   
+	function modalClose(event) {
+        var a = event.target;
+        var b = a.id;
+        if(b == saveModalName) {
+            a.style.display = 'none';
+            $('body').css('overflow','auto');
+            $('body').attr('scroll','yes');
+        }
+    }
+    window.onclick = function(event) {
+        modalClose(event);
+    }
+};
 
 // 모달 오픈 script End
 // 전체 페이지 공통 script
@@ -362,7 +362,7 @@ $(function() {
 	common.menu();
     common.daterangepicker();
     //common.tableResize();
-    //common.modal();
+    common.modal();
 	//지정일 선택
 	$(document).on("click",".datepickSelect .inputBox span",function() {
 		$(".dateLayer").fadeIn(200);
@@ -520,20 +520,61 @@ function seltpcode(){
     }
     $("#advertiserLoadForm").submit();
 }
-
-$(document).on("change","select[name='crtSize']",function () {
-    if($("select[name='crtSize'] option:selected").val()!=''){
-        if($("button.crt_list").hasClass('active')===false){
-            $("button.crt_list").addClass('active');
-        }
+function crtSize(){
+    var crtSizeChk = $("select[name='crtSize'] option:selected");
+    $("button.crt_list").addClass('active');
+    $("#crt_pop_list").find('.modalMainTitle').text(crtSizeChk.text());
+    if(crtSizeChk.val()!=''){
+        $(".crtImgSize").find('h4').css('display','none')
     } else{
-        $("button.crt_list").removeClass('active')
+        $(".crtImgSize").find('h4').css('display','block')
+    }
+};
+function imgChk(){
+    var imgChkVal = $("select[name='imgChk'] option:selected");
+    if(imgChkVal.val()=='all'){
+        $('.crtImg-con').find('li').fadeIn(300);
+        
+    } else if(imgChkVal.val()=='chk'){
+        $('.crtImg-con').find('li.chk').delay(100).fadeIn(500);
+        $('.crtImg-con').find('li.notChk').fadeOut(100);
+    } else if(imgChkVal.val()=='notChk'){
+        $('.crtImg-con').find('li.notChk').delay(100).fadeIn(500);
+        $('.crtImg-con').find('li.chk').fadeOut(100);
+    }
+}
+function imgBig(e){
+    let imgSrc = $(e).closest('li').find('img').attr('src');
+    document.querySelector(".imgView").innerHTML +="<div class='imgBig'><div><p onclick='imgBigDel();'>&#10006;</p><img src="+imgSrc+"></div></div>";
+}
+function imgBigDel(){document.querySelector(".imgView").innerHTML="";}
+$(document).on("click",".crtImg",function () {
+    var liChk = $(this).closest('li');
+    if(liChk.hasClass('chk')){
+        liChk.attr('class','notChk');
+    } else{
+        liChk.attr('class','chk');
     }
 });
-
-
+$(document).on("click","#crt_pop_list .btn-box button",function () {
+    $("select[name='imgChk'] option:eq(0)").prop("selected", true);
+    imgChk();
+});
 //캠페인 등록 페이지 체크 옵션 :e
-
+//소재 관리 페이지 :s
+var xOffset = 10;
+var yOffset = 30;
+$(document).on('mouseover','.previewImg',function(e){
+    $('body').append("<div class='viewImg'><img src='"+$(this).find('img').attr('src')+"'/></div>");
+    $(".viewImg").css("top",(e.pageY - xOffset) + "px").css("left",(e.pageX + yOffset) + "px").fadeIn("fast");
+});
+$(document).on("mousemove",".previewImg",function(e){ //마우스 이동시
+    $(".viewImg").css("top",(e.pageY - xOffset) + "px").css("left",(e.pageX + yOffset) + "px");
+});
+$(document).on('mouseout','.previewImg',function(){
+    $('.viewImg').remove()
+});
+//소재 관리 페이지 :e
 // 전체 선택 스크립트
 $(document).on("click", '.allCheckItems input[name="allCheckbox"]', function() {
 	var valueCheck = $(this).prop("checked");
