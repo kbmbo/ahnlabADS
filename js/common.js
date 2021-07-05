@@ -545,7 +545,7 @@ function imgChk(){
 }
 function imgBig(e){
     let imgSrc = $(e).closest('li').find('img').attr('src');
-    document.querySelector(".imgView").innerHTML +="<div class='imgBig'><div><p onclick='imgBigDel();'>&#10006;</p><img src="+imgSrc+"></div></div>";
+    document.querySelector(".imgView").innerHTML +="<div class='imgBig'><div><p><span onclick='imgBigDel();'>&#10006;</span></p><img src="+imgSrc+"></div></div>";
 }
 function imgBigDel(){document.querySelector(".imgView").innerHTML="";}
 $(document).on("click",".crtImg",function () {
@@ -562,7 +562,7 @@ $(document).on("click","#crt_pop_list .btn-box button",function () {
 });
 //캠페인 등록 페이지 체크 옵션 :e
 //소재 관리 페이지 :s
-var xOffset = 10;
+var xOffset = 60;
 var yOffset = 30;
 $(document).on('mouseover','.previewImg',function(e){
     $('body').append("<div class='viewImg'><img src='"+$(this).find('img').attr('src')+"'/></div>");

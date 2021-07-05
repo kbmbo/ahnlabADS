@@ -38,7 +38,7 @@
   vertical-align: baseline;
   background: transparent;
 }
-html {font-family: 'notokr', 'Nanum Gothic', 'sans-serif';}
+html {font-family: 'notokr', 'Nanum Gothic', 'sans-serif'; background-color: #f5f5f5;}
 body {font-size: 14px;}
 h1, h2, h3, h4, h5, h6 {font-size: 18px;}
 q:before, q:after {
