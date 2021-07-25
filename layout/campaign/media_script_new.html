@@ -1,0 +1,300 @@
+<html lang="ko" style="overflow: hidden;">
+	<head>
+		<title>안랩애드 광고주센터</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--파비콘 공통:s-->
+		<link rel="shortcut icon" href="https://image.ahnlab.com/favicon/favicon.ico">
+		<link rel="icon" sizes="16x16 32x32 64x64" href="https://image.ahnlab.com/favicon//favicon.ico">
+		<link rel="icon" type="image/png" sizes="152x160" href="https://image.ahnlab.com/favicon/favicon_152.png">
+		<link rel="icon" type="image/png" sizes="144x160" href="https://image.ahnlab.com/favicon/favicon_144.png">
+		<link rel="icon" type="image/png" sizes="120x120" href="https://image.ahnlab.com/favicon/favicon_120.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="https://image.ahnlab.com/favicon/favicon_96.png">
+		<link rel="icon" type="image/png" sizes="72x72" href="https://image.ahnlab.com/favicon/favicon_72.png">
+		<link rel="icon" type="image/png" sizes="57x57" href="https://image.ahnlab.com/favicon/favicon_57.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://image.ahnlab.com/favicon/favicon_32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://image.ahnlab.com/favicon/favicon_16.png">
+		<!--파비콘 공통:e-->
+
+		<link rel="stylesheet" type="text/css" href="//jhkim7.mobon.com:8002/content2/css/reset.css">
+		<!-- <link rel="stylesheet" type="text/css" href="//jhkim7.mobon.com:8002/content2/css/common.css"> -->
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<link rel="stylesheet" type="text/css" href="//jhkim7.mobon.com:8002/content2/css/lib/daterangepicker_popup.css">
+		<link rel="stylesheet" type="text/css" href="//jhkim7.mobon.com:8002/content2/css/lib/jquery.dataTables.css">
+		<link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+		<link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/common.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/lib/moment.min.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/lib/daterangepicker_popup.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/lib/dataTables/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/lib/dataTables/dataTables.buttons.min.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/lib/dataTables/buttons.html5.min.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/lib/dataTables/buttons.colVis.min.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/lib/highcharts/highcharts.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/lib/highcharts/modules/data.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/lib/highcharts/modules/drilldown.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/chart.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/lib/jquery.techbytarun.excelexportjs.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/table.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/lib/dropzone/dropzone.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="//jhkim7.mobon.com:8002/content2/js/jquery.ui.touch-punch.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+	</head>
+	<body naver_screen_capture_injected="true">
+		<div class="media_script_all">
+			<!-- start 내용 -->
+			<div class="modalContent">
+				<form id="campaignMediaScriptForm" onkeydown="return captureReturnKey(event)">
+					<input type="hidden" id="csrf" name="ci_csrf_token" value="">
+					<input type="hidden" name="adminId" value="ahnlabad">
+					<input type="hidden" name="adverId" value="ahnlabad">
+					<input type="hidden" name="keys[]" value="--">
+					<h1 class="modalMainTitle">전체 지면</h1>
+					<input type="hidden" name="mediaScriptYn" value="Y">
+					<div class="con clear">
+						<h4>노출형태</h4>
+						<div class="checkbox">
+							<input type="checkbox" name="mediaSearchSvcType" id="mediaSearchSvcType0" class="hidden searchMediaPrdtCode" value="svcType-01" checked=""><label for="mediaSearchSvcType0">배너</label>
+						</div>
+					</div>
+					<div class="con clear">
+						<h4>디바이스</h4>
+						<div class="checkbox">
+							<input type="checkbox" name="wType" id="wType1" class="hidden" value="wType-w" checked=""><label for="wType1">온라인</label>
+							<input type="checkbox" name="wType" id="wType2" class="hidden" value="wType-m" checked=""><label for="wType2">모바일</label>
+						</div>
+					</div>
+					<div class="con clear">
+						<h4>검색</h4>
+						<div>
+							<input type="text" class="w-200 mr-20" id="mediaKeyword" name="keyword" placeholder="검색어를 입력하세요.">
+							<button type="button" id="mediaSearchButton2" class="search" style="background-color:#154188;">검색</button>
+						</div>
+					</div>
+					<div class="mediaRegister clear">
+						<div>
+							<p class="title" id="mediaScriptTitle">등록된 지면<button type="button" id="meidaScriptAllAdd">전체추가</button></p>
+							<div class="excluded">
+								<ul id="searchMediaScriptList">
+									<li class="size-5ff41fad7a6ac category-353 product-04 wType-w  svcType-01 grade-8"><button type="button" class="add mediaScriptAdd" data-script-no="490076"></button>[배너] 안랩_소재_테스트_토스트_300*250_A (웹_일반_토스트) http://brandtimes.or.kr</li>
+								</ul>
+							</div>
+						</div>
+						<div>
+							<p class="title" id="mediaScriptTitle">제외대상 지면<button type="button" id="meidaScriptAllDelete">전체삭제</button></p>
+							
+							<div class="excluded">
+								<ul id="excludedMediaScriptList">
+									<li class="size-5ff529a06c201 category-353 product-03 wType-w svcType-01 grade-8"><input type="hidden" name="mediaScriptNoList[]" class="mediaScriptNoList" value="490075"> <button type="button" class="delete mediaScriptDelete" data-script-no="490075"></button> [배너] 안랩_하단띠배너_970*90 (웹_일반_플로팅) http://ahnlab.com</li><li class="size-5ff41fad7a6ac category-353 product-04 wType-w svcType-01 grade-8"><input type="hidden" name="mediaScriptNoList[]" class="mediaScriptNoList" value="490074"> <button type="button" class="delete mediaScriptDelete" data-script-no="490074"></button> [배너] 안랩_토스트_300*250 (웹_일반_토스트) http://ahnlab.com</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="modalFooter">
+						<div class="btn-box">
+							<button type="button" class="cancel">취소</button>
+							<button type="submit" class="save">수정</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<script type="text/javascript">
+				function captureReturnKey(e) {
+					if(e.keyCode==13 && e.srcElement.type != 'textarea'){
+						var keyword=$("#mediaKeyword").val();
+						if(!keyword){
+							alert('검색어를 입력해 주세요');
+							return;
+						}
+						setTimeout(function(){
+							$("#searchMediaScriptList li").each(function(){
+								if( $(this).text().trim().toUpperCase().indexOf(keyword.toUpperCase()) > -1 ){
+									$(this).removeClass("hidden");
+								} else {
+									$(this).addClass("hidden");
+								}
+							});
+
+							$("#excludedMediaScriptList li").each(function(){
+								if( $(this).text().trim().toUpperCase().indexOf(keyword.toUpperCase()) > -1 ){
+									$(this).removeClass("hidden");
+								} else {
+									$(this).addClass("hidden");
+								}
+							});
+
+							$("#loadingBg").addClass("complete");
+						},400);
+						return false;
+					}
+				}
+
+
+				$(window).load(function(){
+					$('.loadingArea', parent.document).delay(30).fadeOut(200);
+				});
+
+				$(function(){
+					var mediaNo = new Array();
+					var mediaCount = 0;
+					var mediaNoCount = 0;
+					var siteCate = new Array();
+					var siteProduct = new Array();
+
+					$('.save').click(function(){
+
+						$('input[id^="siteProduct"]').each(function(index, item){
+							if($(this).is(":checked") == false){
+								siteProduct.push($(this).data('no'));
+							}
+						});
+						$('input[id^="siteCate"]').each(function(index, item){
+							if($(this).is(":checked") == false){
+								siteCate.push($(this).data('no'));
+							}
+						});
+						$('input[name="mediaScriptNoList[]"]').each(function(index, item){
+							mediaNo[index] = $(this).val();
+						});
+						mediaNoCount= mediaNo.length;
+						mediaCount = $("#searchMediaScriptList>li").length;
+						window.parent.media_insert(mediaNo,mediaCount,mediaNoCount);
+						window.parent.media_proc(siteProduct,siteCate);
+						$('.cancel').trigger('click');
+					});
+
+
+					$("input[name=dcodes],input[name=siteCate],input[name=siteProduct],input[name=wType],input[name=mediaSearchSvcType],input[name=grade]").on("click", function(){
+						var $this = $(this);
+						$("#loadingBg").removeClass("complete");
+						setTimeout(function () {
+							if ($this.prop("checked") == true) {
+								$("#excludedMediaScriptList li." + $this.val()).each(function () {
+									$(this).find(".mediaScriptNoList").remove();
+									$('#searchMediaScriptList').append('<li class="' + $(this).attr("class") + '">' + $(this).find(".mediaScriptDelete").removeClass("delete").removeClass("mediaScriptDelete").addClass("add").addClass("mediaScriptAdd").parent().html() + '</li>');
+									$(this).remove();
+								});
+							} else {
+								$("#searchMediaScriptList li." + $this.val()).each(function () {
+									$('#excludedMediaScriptList').append('<li class="' + $(this).attr("class") + '"><input type="hidden" name="mediaScriptNoList[]" class="mediaScriptNoList" value="'+$(this).find(".mediaScriptAdd").data("script-no")+'" />' + $(this).find(".mediaScriptAdd").removeClass("add").removeClass("mediaScriptAdd").addClass("delete").addClass("mediaScriptDelete").parent().html() + '</li>');
+									$(this).remove();
+								});
+							}
+
+							// 플로팅 선택시 플로팅 일반 추가
+							if($this.val() == 'product-03' ){
+								if ($this.prop("checked") == true) {
+									$("#excludedMediaScriptList li.product-14").each(function () {
+										$(this).find(".mediaScriptNoList").remove();
+										$('#searchMediaScriptList').append('<li class="' + $(this).attr("class") + '">' + $(this).find(".mediaScriptDelete").removeClass("delete").removeClass("mediaScriptDelete").addClass("add").addClass("mediaScriptAdd").parent().html() + '</li>');
+										$(this).remove();
+									});
+								} else {
+									$("#searchMediaScriptList li.product-14").each(function () {
+										$('#excludedMediaScriptList').append('<li class="' + $(this).attr("class") + '"><input type="hidden" name="mediaScriptNoList[]" class="mediaScriptNoList" value="'+$(this).find(".mediaScriptAdd").data("script-no")+'" />' + $(this).find(".mediaScriptAdd").removeClass("add").removeClass("mediaScriptAdd").addClass("delete").addClass("mediaScriptDelete").parent().html() + '</li>');
+										$(this).remove();
+									});
+								}
+							}
+
+							$("#loadingBg").addClass("complete");
+						});
+					});
+
+					$("#meidaScriptAllDelete").on("click", function(){
+						$("#loadingBg").removeClass("complete");
+						setTimeout(function(){
+							var flagArray = [];
+							$.each($(".mediaScriptAdd"), function () {
+								flagArray.push($(this).data('script-no'));
+							});
+
+							$("#excludedMediaScriptList li").not(".hidden").each(function(){
+								var $mediaScriptNo = $(this).find(".mediaScriptDelete").data("script-no");
+								$(this).find(".mediaScriptNoList").remove();
+								if( $.inArray($mediaScriptNo, flagArray) ){
+									$('#searchMediaScriptList').append('<li class="' + $(this).attr("class") + '">'+$(this).find(".mediaScriptDelete").removeClass("delete").removeClass("mediaScriptDelete").addClass("add").addClass("mediaScriptAdd").parent().html()+'</li>');
+									$(this).remove();
+								}
+							});
+							$("#loadingBg").addClass("complete");
+						},400);
+					});
+
+					$("#meidaScriptAllAdd").on("click", function(){
+						$("#loadingBg").removeClass("complete");
+						setTimeout(function(){
+							var flagArray = [];
+							$.each($(".mediaScriptDelete"), function () {
+								flagArray.push($(this).data('script-no'));
+							});
+
+							$("#searchMediaScriptList li").not(".hidden").each(function(){
+								var $mediaScriptNo = $(this).find(".mediaScriptAdd").data("script-no");
+								if( $.inArray($mediaScriptNo, flagArray) ){
+									$('#excludedMediaScriptList').append('<li class="' + $(this).attr("class") + '"><input type="hidden" name="mediaScriptNoList[]" class="mediaScriptNoList" value="'+$mediaScriptNo+'" /> '+$(this).find(".mediaScriptAdd").removeClass("add").removeClass("mediaScriptAdd").addClass("delete").addClass("mediaScriptDelete").parent().html()+'</li>');
+									$(this).remove();
+								}
+							});
+							$("#loadingBg").addClass("complete");
+						},400);
+					});
+
+					$("body").on("click", '.mediaScriptAdd', function(){
+						var $this = $(this);
+						$("#loadingBg").removeClass("complete");
+						setTimeout(function(){
+							$("#excludedMediaScriptList").append('<li class="' + $this.parent().attr("class") + '"><input type="hidden" name="mediaScriptNoList[]" class="mediaScriptNoList" value="'+$this.data("script-no")+'" /> '+$this.removeClass("add").removeClass("mediaScriptAdd").addClass("delete").addClass("mediaScriptDelete").parent().html()+'</li>');
+							$this.parent().remove();
+							$("#loadingBg").addClass("complete");
+						});
+					});
+
+					$("body").on("click", '.mediaScriptDelete', function(){
+						var $this = $(this);
+						$("#loadingBg").removeClass("complete");
+						setTimeout(function() {
+							$this.parent().find(".mediaScriptNoList").remove();
+							$("#searchMediaScriptList").append('<li class="' + $this.parent().attr("class") + '">' + $this.removeClass("delete").removeClass("mediaScriptDelete").addClass("add").addClass("mediaScriptAdd").parent().html() + '</li>');
+							$this.parent().remove();
+							$("#loadingBg").addClass("complete");
+						});
+					});
+
+					$("#mediaSearchButton2").on("click", function(e){
+						$("#loadingBg").removeClass("complete");
+						var keyword = $("#mediaKeyword").val();
+
+						setTimeout(function(){
+							$("#searchMediaScriptList li").each(function(){
+								if( $(this).text().trim().toUpperCase().indexOf(keyword.toUpperCase()) > -1 ){
+									$(this).removeClass("hidden");
+								} else {
+									$(this).addClass("hidden");
+								}
+							});
+
+							$("#excludedMediaScriptList li").each(function(){
+								if( $(this).text().trim().toUpperCase().indexOf(keyword.toUpperCase()) > -1 ){
+									$(this).removeClass("hidden");
+								} else {
+									$(this).addClass("hidden");
+								}
+							});
+
+							$("#loadingBg").addClass("complete");
+						},400);
+					});
+
+				});
+			</script>
+			<!-- end 내용 -->
+		</div>
+		<audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+	</body>
+<audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio><div id="naver_dic-window" style="width: auto; height: auto; max-width: 600px; top: 342px; left: 631px; display: none;"></div>
+</html>

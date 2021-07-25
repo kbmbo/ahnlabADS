@@ -1,0 +1,103 @@
+<html lang="ko" style="overflow: hidden;">
+    <head>
+        <title>ahnlab ADS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--파비콘 공통:s-->
+        <link rel="shortcut icon" href="https://image.ahnlab.com/favicon/favicon.ico">
+        <link rel="icon" sizes="16x16 32x32 64x64" href="https://image.ahnlab.com/favicon//favicon.ico">
+        <link rel="icon" type="image/png" sizes="152x160" href="https://image.ahnlab.com/favicon/favicon_152.png">
+        <link rel="icon" type="image/png" sizes="144x160" href="https://image.ahnlab.com/favicon/favicon_144.png">
+        <link rel="icon" type="image/png" sizes="120x120" href="https://image.ahnlab.com/favicon/favicon_120.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://image.ahnlab.com/favicon/favicon_96.png">
+        <link rel="icon" type="image/png" sizes="72x72" href="https://image.ahnlab.com/favicon/favicon_72.png">
+        <link rel="icon" type="image/png" sizes="57x57" href="https://image.ahnlab.com/favicon/favicon_57.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://image.ahnlab.com/favicon/favicon_32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://image.ahnlab.com/favicon/favicon_16.png">
+        <!--파비콘 공통:e-->
+        <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="../../css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="../../js/common.js"></script>
+        <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="../../js/chart.js"></script>
+        <script type="text/javascript" src="../../js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="../../js/table.js"></script>
+        <script type="text/javascript" src="../../js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+    </head>
+    <body naver_screen_capture_injected="true">
+        <div class="popup">
+            <div class="modalContent">
+                <h1 class="modalMainTitle"><span>안랩 - 소재 등록 1</span> 연결된 캠페인 리스트</h1>
+                <div class="optionBox">
+                    <h3 class="hidden">옵션 박스</h3>
+                    <div class="date">
+                        <h4 class="hidden">날짜선택</h4>
+                        <div class="calendar">
+                            <div class="icon"></div>
+                            <div class="dateChoice">
+                                <input type="text" class="dateInput" value="" readonly="readonly" autocomplete="false">
+                                <input type="hidden" name="sDate" value="20210301">
+                                <input type="hidden" name="eDate" value="20210315">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rightBox">
+                        <input type="text" class="w-200" id="" data-type="" name="crtkeyword" placeholder="캠페인명을 입력하세요." value="">
+                        <button type="button" class="search" data-type="" onclick="">검색</button>
+                    </div>
+                </div>
+                
+                <div class="popTable table-H-2">
+                    <table>
+                        <colgroup>
+                            <col width="50%" />
+                            <col width="30%" />
+                            <col width="20%" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>캠페인명</th>
+                                <th>타켓팅</th>
+                                <th>CTR</th>
+                            </tr>
+                            <tr>
+                                <td>소재1</td>
+                                <td>AD</td>
+                                <td class="PCT blue">99.99</td>
+                            </tr>
+                            <tr>
+                                <td>소재1</td>
+                                <td>AD</td>
+                                <td class="PCT blue">99.99</td>
+                            </tr>
+                            <tr>
+                                <td>소재1</td>
+                                <td>AD</td>
+                                <td class="PCT blue">99.99</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <footer id="footer"></footer>
+        </div>
+    </body>
+    <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</html>

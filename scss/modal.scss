@@ -40,16 +40,16 @@
     }
     &.crt_pop_list{
       width: 80%;
-      max-height: 93%;
+      height: 93%;
       h1.modalMainTitle:after{
         content: ' 사이즈 소재 이미지';
       }
       .customSelect{margin-top: 10px;}
       .crtImg-con{
         width: 100%;
-        max-height:calc(100% - 280px);
+        height:calc(100% - 160px);
         float: left;
-        margin: 20px 0;
+        margin-top: 20px;
         overflow-y: auto;
         .crtImgSize{
           float: left;
@@ -64,6 +64,7 @@
             text-align: center;
             &.noImg{
               display: none;
+              margin-bottom: 30px;
             }
           }
           ul li{
@@ -100,6 +101,7 @@
               text-overflow: ellipsis;
               white-space: nowrap;
               overflow: hidden;
+              cursor: default;
             }
             &.chk .crtImg:after{
               $boder:4px;
@@ -127,16 +129,16 @@
       margin-bottom: 20px;
       &:last-child{margin-bottom: 0;}
     }
-    .modalFooter{
-      margin-top: 20px;
-      text-align: center;
-      .btn-box{height:32px;}
-      button{
-        margin: 0 5px;
-        float: unset;
-        &:first-child{background-color: #d0d0d0;}
-      }
-    }
+  }
+}
+.modalFooter{
+  margin-top: 20px;
+  text-align: center;
+  .btn-box{height:32px;}
+  button{
+    margin: 0 5px;
+    float: unset;
+    &:first-child{background-color: #d0d0d0;}
   }
 }
 #crt_pop_list .imgBig{
@@ -151,11 +153,46 @@
     padding: 5px 30px 30px;
     margin: 0 auto;
     border-radius:5px;
-    p{font-size: 25px; text-align: right;cursor: pointer;}
+    max-height: 95%;
+    max-width: 95%;
+    > p > span{float: right; font-size: 25px; text-align: right;cursor: pointer; padding-left: 5px;}
     img{
       object-fit: contain;
       max-height: 100%;
       max-width: 100%;
     }
+  }
+}
+.media_script_all{
+  $h4W:120px;
+  padding: 30px;
+  @include WH(100%,100%);
+  .con{
+    width: 100%;
+    @include lineH($inputH);
+    margin-bottom: 15px;
+    h4{
+      font-weight: 500;
+			font-size: 16px;
+			width: $h4W;
+			float: left;
+    }
+    > div{
+      width: calc(100% - #{$h4W});
+      float: left;
+      &.checkbox{
+        height: 100%;
+        input[type="checkbox"] + label{
+          float: left;
+          margin-right: 15px;
+          &:before{top:8px !important;}
+        }
+      }
+    }
+  }
+  .mediaRegister .title > button{
+    position: absolute;
+    right: 0;
+    margin:8px 8px 0 0;
   }
 }
