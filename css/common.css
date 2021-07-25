@@ -341,8 +341,7 @@ button {
   padding: 30px;
   background-color: #f5f5f5;
   transition: all 0.4s;
-  overflow: auto;
-  height: calc(100% - 55px); }
+  overflow: auto; }
   #wrap.Maximize {
     width: calc(100% - 90px);
     margin-left: 90px; }
@@ -432,53 +431,87 @@ button {
           margin-right: 0; }
       .contents section > div.input25 input {
         text-align: right; }
+      .contents section > div.mediaRegister {
+        border: 1px solid #b1b6b7;
+        border-radius: 6px;
+        overflow: hidden; }
+        .contents section > div.mediaRegister > div {
+          width: 50%;
+          height: 400px;
+          float: left; }
+          .contents section > div.mediaRegister > div:first-child {
+            border-right: 1px solid #b1b6b7; }
+          .contents section > div.mediaRegister > div > p {
+            text-align: center;
+            background-color: #eee;
+            font-size: 16px;
+            height: 50px;
+            line-height: 50px; }
+          .contents section > div.mediaRegister > div > div {
+            margin: 20px 10px 20px 20px;
+            height: 310px;
+            overflow-y: auto;
+            overflow-x: hidden; }
+            .contents section > div.mediaRegister > div > div.excluded > ul > li {
+              width: 100%;
+              height: 20px;
+              line-height: 20px;
+              margin: 10px 10px 5px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              float: left; }
+              .contents section > div.mediaRegister > div > div.excluded > ul > li button {
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                padding: 0;
+                margin-right: 10px;
+                font-size: 25px;
+                color: #fff; }
+                .contents section > div.mediaRegister > div > div.excluded > ul > li button.mediaScriptAdd {
+                  background-color: #154188; }
+                .contents section > div.mediaRegister > div > div.excluded > ul > li button.mediaScriptDelete {
+                  background-color: #b1b6b7; }
       .contents section > div.crtRegList {
         height: 70px;
         overflow: hidden; }
         .contents section > div.crtRegList h4 {
           height: 100%; }
-        .contents section > div.crtRegList ul {
-          height: 100%; }
-          .contents section > div.crtRegList ul li {
-            width: 100px;
+        .contents section > div.crtRegList li {
+          height: 100%;
+          float: left;
+          margin-right: 10px;
+          position: relative;
+          display: flex;
+          align-items: center; }
+          .contents section > div.crtRegList li img {
+            object-fit: contain;
+            height: 100%; }
+          .contents section > div.crtRegList li p {
+            display: none; }
+          .contents section > div.crtRegList li:hover p {
+            display: -webkit-box;
+            display: box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-all;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            position: absolute;
+            text-align: center;
+            color: #fff;
+            font-size: 13px;
+            padding: 0 5px;
+            width: 100%; }
+          .contents section > div.crtRegList li:hover:before {
+            position: absolute;
+            top: 0;
+            content: '';
+            display: block;
+            width: 100%;
             height: 100%;
-            float: left;
-            margin-right: 10px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            border: 1px solid #d0d0d0; }
-            .contents section > div.crtRegList ul li .crtImg {
-              width: 100%;
-              height: 100%; }
-              .contents section > div.crtRegList ul li .crtImg img {
-                object-fit: contain;
-                width: 100%;
-                height: 100%; }
-            .contents section > div.crtRegList ul li p {
-              display: none; }
-            .contents section > div.crtRegList ul li:hover p {
-              display: -webkit-box;
-              display: box;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              word-break: break-all;
-              -webkit-box-orient: vertical;
-              -webkit-line-clamp: 3;
-              position: absolute;
-              text-align: center;
-              color: #fff;
-              font-size: 13px;
-              padding: 0 5px;
-              width: 100%; }
-            .contents section > div.crtRegList ul li:hover:before {
-              position: absolute;
-              top: 0;
-              content: '';
-              display: block;
-              width: 100%;
-              height: 100%;
-              background-color: rgba(0, 0, 0, 0.7); }
+            background-color: rgba(0, 0, 0, 0.7); }
       .contents section > div .dropzonePreview li {
         position: relative;
         float: left;
@@ -825,6 +858,7 @@ table.crtstatus td {
   height: 90px !important;
   font-size: 14px; }
   table.crtstatus td.previewImg {
+    position: relative;
     height: 100%; }
     table.crtstatus td.previewImg img {
       object-fit: contain;
@@ -840,66 +874,12 @@ table.crtstatus .R {
 .viewImg {
   z-index: 9999;
   position: absolute;
+  border: 1px solid #000;
   display: none; }
-  .viewImg img {
-    border: 1px solid #000; }
-
-.mediaRegister {
-  border: 1px solid #b1b6b7;
-  border-radius: 6px;
-  overflow: hidden; }
-  .mediaRegister > div {
-    width: 50%;
-    height: 400px;
-    float: left; }
-    .mediaRegister > div:first-child {
-      border-right: 1px solid #b1b6b7; }
-    .mediaRegister > div .title {
-      text-align: center;
-      background-color: #eee;
-      font-size: 16px;
-      height: 50px;
-      line-height: 50px;
-      position: relative; }
-    .mediaRegister > div > div {
-      margin: 20px 10px 20px 20px;
-      height: 310px;
-      overflow-y: auto;
-      overflow-x: hidden; }
-      .mediaRegister > div > div.excluded > ul > li {
-        width: 100%;
-        height: 20px;
-        line-height: 20px;
-        margin: 10px 10px 5px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        float: left; }
-        .mediaRegister > div > div.excluded > ul > li button {
-          width: 20px;
-          height: 20px;
-          line-height: 20px;
-          padding: 0;
-          margin-right: 10px;
-          font-size: 25px;
-          color: #fff; }
-          .mediaRegister > div > div.excluded > ul > li button.mediaScriptAdd, .mediaRegister > div > div.excluded > ul > li button.mediaScriptDelete {
-            padding: 4px; }
-          .mediaRegister > div > div.excluded > ul > li button.mediaScriptAdd:before, .mediaRegister > div > div.excluded > ul > li button.mediaScriptAdd:after, .mediaRegister > div > div.excluded > ul > li button.mediaScriptDelete:before {
-            content: '';
-            width: 100%;
-            height: 2px;
-            background-color: #fff;
-            display: block;
-            margin: -1.5px 0; }
-          .mediaRegister > div > div.excluded > ul > li button.mediaScriptAdd {
-            background-color: #154188; }
-            .mediaRegister > div > div.excluded > ul > li button.mediaScriptAdd:after {
-              transform: rotate(90deg); }
-          .mediaRegister > div > div.excluded > ul > li button.mediaScriptDelete {
-            background-color: #b1b6b7; }
 
 footer {
+  position: relative;
+  bottom: 0;
   width: 100%;
   text-align: center;
   font-size: 13px;
@@ -1107,21 +1087,12 @@ footer {
 .popup {
   padding: 30px; }
   .popup .subMenu-list {
-    margin: 15px 0; }
-  .popup .optionBox {
-    float: left;
-    width: 100%;
-    margin: 10px 0 15px; }
-    .popup .optionBox button {
-      margin-right: 0; }
+    margin: 20px 0; }
   .popup .popTable {
     overflow-y: auto;
-    width: 100%;
-    height: 76vh; }
-    .popup .popTable.table-H-2 {
-      height: 80vh; }
+    height: 75%; }
     .popup .popTable table {
-      width: 99%;
+      width: 97%;
       text-align: center;
       border: 1px solid #3e3e3e;
       border-collapse: collapse;
@@ -1133,12 +1104,6 @@ footer {
         border-bottom: 1px solid #3e3e3e;
         padding: 10px 15px;
         vertical-align: middle; }
-  .popup footer {
-    position: absolute;
-    left: 0;
-    height: 30px;
-    line-height: 30px;
-    background-color: #fff; }
 
 .tableSection table .oneOnOffSetting div,
 .twoLineTableSection table .oneOnOffSetting div {
@@ -1270,16 +1235,16 @@ footer {
         padding-right: 10px; }
     .modal .modalContent.crt_pop_list {
       width: 80%;
-      height: 93%; }
+      max-height: 93%; }
       .modal .modalContent.crt_pop_list h1.modalMainTitle:after {
         content: ' 사이즈 소재 이미지'; }
       .modal .modalContent.crt_pop_list .customSelect {
         margin-top: 10px; }
       .modal .modalContent.crt_pop_list .crtImg-con {
         width: 100%;
-        height: calc(100% - 160px);
+        max-height: calc(100% - 280px);
         float: left;
-        margin-top: 20px;
+        margin: 20px 0;
         overflow-y: auto; }
         .modal .modalContent.crt_pop_list .crtImg-con .crtImgSize {
           float: left;
@@ -1296,8 +1261,7 @@ footer {
             font-size: 16px;
             text-align: center; }
             .modal .modalContent.crt_pop_list .crtImg-con .crtImgSize p.noImg {
-              display: none;
-              margin-bottom: 30px; }
+              display: none; }
           .modal .modalContent.crt_pop_list .crtImg-con .crtImgSize ul li {
             position: relative;
             float: left;
@@ -1329,8 +1293,7 @@ footer {
               line-height: 40px;
               text-overflow: ellipsis;
               white-space: nowrap;
-              overflow: hidden;
-              cursor: default; }
+              overflow: hidden; }
             .modal .modalContent.crt_pop_list .crtImg-con .crtImgSize ul li.chk .crtImg:after {
               content: '';
               border: 4px solid #ff4545;
@@ -1358,17 +1321,16 @@ footer {
       margin-bottom: 20px; }
       .modal .modalContent section:last-child {
         margin-bottom: 0; }
-
-.modalFooter {
-  margin-top: 20px;
-  text-align: center; }
-  .modalFooter .btn-box {
-    height: 32px; }
-  .modalFooter button {
-    margin: 0 5px;
-    float: unset; }
-    .modalFooter button:first-child {
-      background-color: #d0d0d0; }
+    .modal .modalContent .modalFooter {
+      margin-top: 20px;
+      text-align: center; }
+      .modal .modalContent .modalFooter .btn-box {
+        height: 32px; }
+      .modal .modalContent .modalFooter button {
+        margin: 0 5px;
+        float: unset; }
+        .modal .modalContent .modalFooter button:first-child {
+          background-color: #d0d0d0; }
 
 #crt_pop_list .imgBig {
   position: fixed;
@@ -1382,48 +1344,15 @@ footer {
     background-color: #fff;
     padding: 5px 30px 30px;
     margin: 0 auto;
-    border-radius: 5px;
-    max-height: 95%;
-    max-width: 95%; }
-    #crt_pop_list .imgBig > div > p > span {
-      float: right;
+    border-radius: 5px; }
+    #crt_pop_list .imgBig > div p {
       font-size: 25px;
       text-align: right;
-      cursor: pointer;
-      padding-left: 5px; }
+      cursor: pointer; }
     #crt_pop_list .imgBig > div img {
       object-fit: contain;
       max-height: 100%;
       max-width: 100%; }
-
-.media_script_all {
-  padding: 30px;
-  width: 100%;
-  height: 100%; }
-  .media_script_all .con {
-    width: 100%;
-    height: 32px;
-    line-height: 32px;
-    margin-bottom: 15px; }
-    .media_script_all .con h4 {
-      font-weight: 500;
-      font-size: 16px;
-      width: 120px;
-      float: left; }
-    .media_script_all .con > div {
-      width: calc(100% - 120px);
-      float: left; }
-      .media_script_all .con > div.checkbox {
-        height: 100%; }
-        .media_script_all .con > div.checkbox input[type="checkbox"] + label {
-          float: left;
-          margin-right: 15px; }
-          .media_script_all .con > div.checkbox input[type="checkbox"] + label:before {
-            top: 8px !important; }
-  .media_script_all .mediaRegister .title > button {
-    position: absolute;
-    right: 0;
-    margin: 8px 8px 0 0; }
 
 .mainHeader #headerTop {
   width: calc(100% - 250px);

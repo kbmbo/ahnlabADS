@@ -219,15 +219,13 @@
 }
 .popup{
 	padding:$conP;
-	.subMenu-list{margin:15px 0;}
-	.optionBox{float: left; width: 100%;margin:10px 0 15px; button{margin-right: 0;}}
+	.subMenu-list{margin:20px 0;}
 	.popTable{
 		$bColor:#3e3e3e;
 		overflow-y: auto;
-		@include WH(100%,76vh);
-		&.table-H-2{height: 80vh;}
+		height: 75%;
 		table{
-			width: 99%;
+			width: 97%;
 			text-align: center;
 			border: 1px solid $bColor;
 			border-collapse: collapse;
@@ -241,7 +239,6 @@
 			}
 		}
 	}
-	footer{position: absolute; left: 0; @include lineH(30px);background-color: #fff;}
 }
 .tableSection table .oneOnOffSetting div,
 .twoLineTableSection table .oneOnOffSetting div {

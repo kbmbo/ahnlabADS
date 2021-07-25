@@ -392,7 +392,6 @@ $navW2:90px;
 	background-color: #f5f5f5;
 	transition: all 0.4s;
 	overflow: auto;
-	height: calc(100% - #{$topH});
 	&.Maximize{width:calc(100% - #{$navW2}); margin-left: $navW2;}
 	> h2 {
 		padding-bottom: 10px;
@@ -483,52 +482,89 @@ $navW2:90px;
 				&:last-child{margin-right: 0;}
 			}
 			&.input25 input{text-align: right;}
+			&.mediaRegister{
+				border: 1px solid $subColor;
+				border-radius: 6px;
+				overflow: hidden;
+				> div{
+					$divH:400px;
+					$pH:50px;
+					width: 50%;
+					height: $divH;
+					float: left;
+					&:first-child{border-right: 1px solid $subColor;}
+					> p{
+						text-align: center;
+						background-color: #eee;
+						font-size: 16px;
+						@include lineH($pH);
+					}
+					> div{
+						margin: 20px 10px 20px 20px;
+						height: $divH - ($pH + 40px);
+						overflow-y: auto;
+						overflow-x: hidden;
+						&.excluded > ul > li {
+							width: 100%;
+							@include lineH(20px);
+							margin: 10px 10px 5px;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							float: left;
+							button{
+								width: 20px;
+								@include lineH(20px);
+								padding:0;
+								margin-right: 10px;
+								font-size: 25px;
+								color: #fff;
+								&.mediaScriptAdd{background-color: $mainColor;}
+								&.mediaScriptDelete{background-color: $subColor;}
+							}
+						}
+					}
+				}
+			}
 			&.crtRegList{
 				height: 70px;
 				overflow: hidden;
 				h4{height: 100%;}
-				ul{
+				li{
 					height: 100%;
-					li{
-						@include WH(100px,100%);
-						float: left;
-						margin-right: 10px;
-						position: relative;
-						display: flex;
-						align-items: center;
-						border: 1px solid #d0d0d0;
-						.crtImg{
-							@include WH(100%,100%);
-							img{
-								object-fit: contain;
-								@include WH(100%,100%);
-							}
+					float: left;
+					margin-right: 10px;
+					position: relative;
+					display: flex;
+					align-items: center;
+					img{
+						object-fit: contain;
+						height: 100%;
+					}
+					p{display: none;}
+					&:hover {
+						p{
+							display: -webkit-box;
+							display: box;
+							overflow:hidden;
+							text-overflow: ellipsis;
+							word-break:break-all;
+							-webkit-box-orient:vertical;
+							-webkit-line-clamp:3;
+							position: absolute;
+							text-align: center;
+							color: #fff;
+							font-size: 13px;
+							padding: 0 5px;
+							width: 100%;
 						}
-						p{display: none;}
-						&:hover {
-							p{
-								display: -webkit-box;
-								display: box;
-								overflow:hidden;
-								text-overflow: ellipsis;
-								word-break:break-all;
-								-webkit-box-orient:vertical;
-								-webkit-line-clamp:3;
-								position: absolute;
-								text-align: center;
-								color: #fff;
-								font-size: 13px;
-								padding: 0 5px;
-								width: 100%;
-							}
-							&:before{
-								position: absolute;
-								top: 0;
-								content: '';
-								display: block;
-								@include WH(100%,100%);
-								background-color: rgba(0,0,0,.7);
-							}
+						&:before{
+							position: absolute;
+							top: 0;
+							content: '';
+							display: block;
+							@include WH(100%,100%);
+							background-color: rgba(0,0,0,.7);
 						}
 					}
 				}
@@ -924,6 +960,7 @@ table.crtstatus{
 		height: 90px !important;
 		font-size: 14px;
 		&.previewImg{
+			position: relative;
 			height: 100%;
 			img{object-fit: contain; @include WH(100%,100%);}
 		}
@@ -935,68 +972,15 @@ table.crtstatus{
 .viewImg{
 	z-index: 9999;
 	position:absolute;
+	border:1px solid #000;
 	display:none;
-	img{border:1px solid #000;}
 }
-.mediaRegister{
-	border: 1px solid $subColor;
-	border-radius: 6px;
-	overflow: hidden;
-	> div{
-		$divH:400px;
-		$pH:50px;
-		width: 50%;
-		height: $divH;
-		float: left;
-		&:first-child{border-right: 1px solid $subColor;}
-		.title{
-			text-align: center;
-			background-color: #eee;
-			font-size: 16px;
-			@include lineH($pH);
-			position: relative;
-		}
-		> div{
-			margin: 20px 10px 20px 20px;
-			height: $divH - ($pH + 40px);
-			overflow-y: auto;
-			overflow-x: hidden;
-			&.excluded > ul > li {
-				width: 100%;
-				@include lineH(20px);
-				margin: 10px 10px 5px;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				float: left;
-				button{
-					width: 20px;
-					@include lineH(20px);
-					padding:0;
-					margin-right: 10px;
-					font-size: 25px;
-					color: #fff;
-					&.mediaScriptAdd,&.mediaScriptDelete{padding: 4px;}
-					&.mediaScriptAdd:before,&.mediaScriptAdd:after,&.mediaScriptDelete:before{
-						content: '';
-						@include WH(100%,2px);
-						background-color: #fff;
-						display: block;
-						margin: -1.5px 0;
-					}
-					&.mediaScriptAdd{
-						background-color: $mainColor;
-						&:after{transform: rotate(90deg);}
-					}
-					&.mediaScriptDelete{background-color: $subColor;}
-				}
-			}
-		}
-	}
-}
+
 ////////////content 구성 요소:e///////////////
 /////////footer:s///////////
 footer {
+	position: relative;
+	bottom: 0;
 	width: 100%;
 	text-align: center;
 	font-size: 13px;
